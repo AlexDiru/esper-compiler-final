@@ -104,7 +104,7 @@ public class EsperCompiler {
 			for (int i = 0; i < indent; i++)
 				indentstr += " ";
 			for (int i = 0; i < ast.getChildCount(); i++) {
-				System.out.println(indentstr + ast.getChild(i).toString());
+				System.out.println(indentstr + ast.getChild(i).toString() + " [ " + getTokenName(ast.getChild(i).getType()) + " ] ");
 				printTree2((CommonTree)ast.getChild(i), indent+1);
 			}
 				
