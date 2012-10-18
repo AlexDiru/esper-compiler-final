@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g 2012-10-17 23:20:42
+// $ANTLR 3.4 C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g 2012-10-18 15:30:14
 
   package antlrGenerated;
 
@@ -41,17 +41,18 @@ public class EsperLexer extends Lexer {
         try {
             int _type = IDENTIFIER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:34:12: ( ( 'a' .. 'z' )+ )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:34:14: ( 'a' .. 'z' )+
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:34:12: ( 'a' .. 'z' ( 'a' .. 'z' | DIGIT )* )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:34:14: 'a' .. 'z' ( 'a' .. 'z' | DIGIT )*
             {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:34:14: ( 'a' .. 'z' )+
-            int cnt1=0;
+            matchRange('a','z'); 
+
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:34:23: ( 'a' .. 'z' | DIGIT )*
             loop1:
             do {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0 >= 'a' && LA1_0 <= 'z')) ) {
+                if ( ((LA1_0 >= '0' && LA1_0 <= '9')||(LA1_0 >= 'a' && LA1_0 <= 'z')) ) {
                     alt1=1;
                 }
 
@@ -60,7 +61,7 @@ public class EsperLexer extends Lexer {
             	case 1 :
             	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:
             	    {
-            	    if ( (input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
+            	    if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
             	        input.consume();
             	    }
             	    else {
@@ -74,12 +75,8 @@ public class EsperLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt1 >= 1 ) break loop1;
-                        EarlyExitException eee =
-                            new EarlyExitException(1, input);
-                        throw eee;
+            	    break loop1;
                 }
-                cnt1++;
             } while (true);
 
 

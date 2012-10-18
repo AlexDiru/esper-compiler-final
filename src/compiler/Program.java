@@ -15,10 +15,10 @@ public class Program {
 			System.out.println(arg);
 		}
 		
-		EsperCompiler compiler = new EsperCompiler("asd=3;  b=2;");
+		EsperCompiler compiler = new EsperCompiler("a=3+2a=5");
 		System.out.println("Compiled!");
-		System.out.println("Lexer status: " + successOrFailure(compiler.lexerSuccess));
-		System.out.println("Parser status: " + successOrFailure(compiler.parserSuccess));
+		System.out.println("Lexer status: " + successOrFailure(compiler.lexerSuccess) + " | Errors: " + compiler.lexerErrors);
+		System.out.println("Parser status: " + successOrFailure(compiler.parserSuccess) + " | Errors: " + compiler.parserErrors);
 	}
 
 }

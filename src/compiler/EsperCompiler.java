@@ -5,8 +5,11 @@ import java.lang.reflect.Field;
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.RuleReturnScope;
 import org.antlr.runtime.Token;
 import org.antlr.runtime.tree.CommonTree;
+import org.antlr.runtime.tree.DOTTreeGenerator;
+import org.antlr.stringtemplate.StringTemplate;
 
 import antlrGenerated.EsperLexer;
 import antlrGenerated.EsperParser;
@@ -14,7 +17,7 @@ import antlrGenerated.EsperParser;
 public class EsperCompiler {
 	
 	//Used when printing the syntax tree
-	private static String depth = "";
+	private static String depth = ">";
 	
 	public boolean lexerSuccess = false;
 	public int lexerErrors = 0;
@@ -27,30 +30,33 @@ public class EsperCompiler {
 		//Strip whitespace, tabs - both are irrelevant
 		sourceCode = sourceCode.replace("\n","").replace("\r", "").replace("\t", "").replace(" ", "");
 		
+		//Lexical analysis
 		EsperLexer lexer = new EsperLexer(new ANTLRStringStream(sourceCode));
 		lexerSuccess = (lexerErrors = lexer.getNumberOfSyntaxErrors()) <= 0;
+		
+		//Parser
 		EsperParser parser = new EsperParser(new CommonTokenStream(lexer));
-		parserSuccess = (parserErrors = parser.getNumberOfSyntaxErrors()) <= 0;
-
 		EsperParser.program_return ret;
-
 		try {
 			ret = parser.program();
 		} catch (RecognitionException e) {
 			e.printStackTrace();
 			return;
 		}
+		parserSuccess = (parserErrors = parser.getNumberOfSyntaxErrors()) <= 0;
 
 		// Acquire parse result
 		CommonTree ast = (CommonTree) ret.getTree();
 
+		//Print Lexical Output
 		System.out.println("Lexer output: ");
 		Token token;
 		lexer = new EsperLexer(new ANTLRStringStream(sourceCode));
 		while ((token = lexer.nextToken()).getType() != -1) {
-			System.out.println("Token: " + token.getText() + " | " + this.getTokenName(token.getType()));
+			System.out.println("Token: " + token.getText() + " | " + getTokenName(token.getType()));
 		}
 		
+		//Print parser output
 		System.out.println("Parser output: ");
 		printTree(ast);
 	}
@@ -81,19 +87,20 @@ public class EsperCompiler {
 
 	private void printTree(CommonTree ast) {
 
-		depth += ">";
 		try {
 			System.out.println(depth + " " + ast.getText() + " | " + getTokenName(ast.getToken().getType()));
 		} catch (Exception ex) {
+			System.out.println(depth + " root");
 		}
 			
 		if (ast.getChildren() != null) {
+			depth += ">";
 			for (Object child : ast.getChildren()) {
 				printTree((CommonTree) child);
 			}
+			depth = depth.substring(depth.length() - 1);
 		}
 
-		depth = depth.substring(depth.length() - 1);
 	}
 
 }

@@ -13,25 +13,25 @@ options {
   package antlrGenerated;
 }
 
- 
 /*------------------------------------------------------------------
  * PARSER RULES
  *------------------------------------------------------------------*/
  
 program : statements ;
-statements : statement | statement statements ;
-statement : (expr | assign) SEMICOLON ;
-expr    : term ( ( PLUS | MINUS )  term )* ;
-term    : factor ( ( MULT | DIV ) factor )* ;
+statements : statement 
+           | statement statements -> ^(statement statements);
+statement : (expr | assign) ;
+expr    : term ( ( PLUS | MINUS )^  term )* ;
+term    : factor ( ( MULT | DIV )^ factor )* ;
 factor  : DIGIT ;
 operator : PLUS | MINUS | MULT | DIV ;
-assign : IDENTIFIER EQ factor ;
+assign : IDENTIFIER EQ expr -> ^(EQ IDENTIFIER expr);
  
 /*------------------------------------------------------------------
  * LEXER RULES
  *------------------------------------------------------------------*/
 
-IDENTIFIER : 'a'..'z'+ ;
+IDENTIFIER : 'a'..'z' ('a'..'z' | DIGIT)*;
 WHITESPACE :  '\t' | ' ' | '\r' | '\n'| '\u000C' ;
 DIGIT : '0'..'9' ;
 PLUS: '+' ;
