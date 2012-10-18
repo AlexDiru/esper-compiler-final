@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g 2012-10-18 15:30:13
+// $ANTLR 3.4 C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g 2012-10-18 21:29:09
 
   package antlrGenerated;
 
@@ -14,19 +14,31 @@ import org.antlr.runtime.tree.*;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class EsperParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "DIGIT", "DIV", "EQ", "IDENTIFIER", "MINUS", "MULT", "PLUS", "SEMICOLON", "WHITESPACE"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ASSIGN", "DECLARE", "DIGIT", "DIV", "ELSE", "ELSEIF", "ENDIF", "EQUALTO", "GREATERTHAN", "GREATERTHANEQUAL", "IDENTIFIER", "IF", "LESSTHAN", "LESSTHANEQUAL", "MINUS", "MULT", "PLUS", "PRINT", "SEMICOLON", "VARTYPE", "WHITESPACE"
     };
 
     public static final int EOF=-1;
-    public static final int DIGIT=4;
-    public static final int DIV=5;
-    public static final int EQ=6;
-    public static final int IDENTIFIER=7;
-    public static final int MINUS=8;
-    public static final int MULT=9;
-    public static final int PLUS=10;
-    public static final int SEMICOLON=11;
-    public static final int WHITESPACE=12;
+    public static final int ASSIGN=4;
+    public static final int DECLARE=5;
+    public static final int DIGIT=6;
+    public static final int DIV=7;
+    public static final int ELSE=8;
+    public static final int ELSEIF=9;
+    public static final int ENDIF=10;
+    public static final int EQUALTO=11;
+    public static final int GREATERTHAN=12;
+    public static final int GREATERTHANEQUAL=13;
+    public static final int IDENTIFIER=14;
+    public static final int IF=15;
+    public static final int LESSTHAN=16;
+    public static final int LESSTHANEQUAL=17;
+    public static final int MINUS=18;
+    public static final int MULT=19;
+    public static final int PLUS=20;
+    public static final int PRINT=21;
+    public static final int SEMICOLON=22;
+    public static final int VARTYPE=23;
+    public static final int WHITESPACE=24;
 
     // delegates
     public Parser[] getDelegates() {
@@ -119,7 +131,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "statements"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:21:1: statements : ( statement | statement statements -> ^( statement statements ) );
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:21:1: statements : ( statement )+ ;
     public final EsperParser.statements_return statements() throws RecognitionException {
         EsperParser.statements_return retval = new EsperParser.statements_return();
         retval.start = input.LT(1);
@@ -129,82 +141,53 @@ public TreeAdaptor getTreeAdaptor() {
 
         EsperParser.statement_return statement2 =null;
 
-        EsperParser.statement_return statement3 =null;
-
-        EsperParser.statements_return statements4 =null;
 
 
-        RewriteRuleSubtreeStream stream_statement=new RewriteRuleSubtreeStream(adaptor,"rule statement");
-        RewriteRuleSubtreeStream stream_statements=new RewriteRuleSubtreeStream(adaptor,"rule statements");
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:21:12: ( statement | statement statements -> ^( statement statements ) )
-            int alt1=2;
-            alt1 = dfa1.predict(input);
-            switch (alt1) {
-                case 1 :
-                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:21:14: statement
-                    {
-                    root_0 = (Object)adaptor.nil();
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:21:12: ( ( statement )+ )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:21:14: ( statement )+
+            {
+            root_0 = (Object)adaptor.nil();
 
 
-                    pushFollow(FOLLOW_statement_in_statements63);
-                    statement2=statement();
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:21:14: ( statement )+
+            int cnt1=0;
+            loop1:
+            do {
+                int alt1=2;
+                int LA1_0 = input.LA(1);
 
-                    state._fsp--;
-
-                    adaptor.addChild(root_0, statement2.getTree());
-
-                    }
-                    break;
-                case 2 :
-                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:22:14: statement statements
-                    {
-                    pushFollow(FOLLOW_statement_in_statements79);
-                    statement3=statement();
-
-                    state._fsp--;
-
-                    stream_statement.add(statement3.getTree());
-
-                    pushFollow(FOLLOW_statements_in_statements81);
-                    statements4=statements();
-
-                    state._fsp--;
-
-                    stream_statements.add(statements4.getTree());
-
-                    // AST REWRITE
-                    // elements: statements, statement
-                    // token labels: 
-                    // rule labels: retval
-                    // token list labels: 
-                    // rule list labels: 
-                    // wildcard labels: 
-                    retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-
-                    root_0 = (Object)adaptor.nil();
-                    // 22:35: -> ^( statement statements )
-                    {
-                        // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:22:38: ^( statement statements )
-                        {
-                        Object root_1 = (Object)adaptor.nil();
-                        root_1 = (Object)adaptor.becomeRoot(stream_statement.nextNode(), root_1);
-
-                        adaptor.addChild(root_1, stream_statements.nextTree());
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-
-                    }
+                if ( ((LA1_0 >= ASSIGN && LA1_0 <= DIV)||(LA1_0 >= EQUALTO && LA1_0 <= PLUS)) ) {
+                    alt1=1;
+                }
 
 
-                    retval.tree = root_0;
+                switch (alt1) {
+            	case 1 :
+            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:21:14: statement
+            	    {
+            	    pushFollow(FOLLOW_statement_in_statements63);
+            	    statement2=statement();
 
-                    }
-                    break;
+            	    state._fsp--;
+
+            	    adaptor.addChild(root_0, statement2.getTree());
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt1 >= 1 ) break loop1;
+                        EarlyExitException eee =
+                            new EarlyExitException(1, input);
+                        throw eee;
+                }
+                cnt1++;
+            } while (true);
+
 
             }
+
             retval.stop = input.LT(-1);
 
 
@@ -234,7 +217,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "statement"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:23:1: statement : ( expr | assign ) ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:22:1: statement : ( ifthenelse | condition | expr | assign | declaration );
     public final EsperParser.statement_return statement() throws RecognitionException {
         EsperParser.statement_return retval = new EsperParser.statement_return();
         retval.start = input.LT(1);
@@ -242,41 +225,102 @@ public TreeAdaptor getTreeAdaptor() {
 
         Object root_0 = null;
 
+        EsperParser.ifthenelse_return ifthenelse3 =null;
+
+        EsperParser.condition_return condition4 =null;
+
         EsperParser.expr_return expr5 =null;
 
         EsperParser.assign_return assign6 =null;
 
+        EsperParser.declaration_return declaration7 =null;
+
 
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:23:11: ( ( expr | assign ) )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:23:13: ( expr | assign )
-            {
-            root_0 = (Object)adaptor.nil();
-
-
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:23:13: ( expr | assign )
-            int alt2=2;
-            int LA2_0 = input.LA(1);
-
-            if ( (LA2_0==DIGIT) ) {
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:22:11: ( ifthenelse | condition | expr | assign | declaration )
+            int alt2=5;
+            switch ( input.LA(1) ) {
+            case IF:
+                {
                 alt2=1;
-            }
-            else if ( (LA2_0==IDENTIFIER) ) {
+                }
+                break;
+            case EQUALTO:
+            case GREATERTHAN:
+            case GREATERTHANEQUAL:
+            case LESSTHAN:
+            case LESSTHANEQUAL:
+                {
                 alt2=2;
-            }
-            else {
+                }
+                break;
+            case DIGIT:
+            case DIV:
+            case IDENTIFIER:
+            case MINUS:
+            case MULT:
+            case PLUS:
+                {
+                alt2=3;
+                }
+                break;
+            case ASSIGN:
+                {
+                alt2=4;
+                }
+                break;
+            case DECLARE:
+                {
+                alt2=5;
+                }
+                break;
+            default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 2, 0, input);
 
                 throw nvae;
 
             }
+
             switch (alt2) {
                 case 1 :
-                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:23:14: expr
+                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:22:13: ifthenelse
                     {
-                    pushFollow(FOLLOW_expr_in_statement97);
+                    root_0 = (Object)adaptor.nil();
+
+
+                    pushFollow(FOLLOW_ifthenelse_in_statement72);
+                    ifthenelse3=ifthenelse();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, ifthenelse3.getTree());
+
+                    }
+                    break;
+                case 2 :
+                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:23:13: condition
+                    {
+                    root_0 = (Object)adaptor.nil();
+
+
+                    pushFollow(FOLLOW_condition_in_statement86);
+                    condition4=condition();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, condition4.getTree());
+
+                    }
+                    break;
+                case 3 :
+                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:24:13: expr
+                    {
+                    root_0 = (Object)adaptor.nil();
+
+
+                    pushFollow(FOLLOW_expr_in_statement100);
                     expr5=expr();
 
                     state._fsp--;
@@ -285,10 +329,13 @@ public TreeAdaptor getTreeAdaptor() {
 
                     }
                     break;
-                case 2 :
-                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:23:21: assign
+                case 4 :
+                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:25:13: assign
                     {
-                    pushFollow(FOLLOW_assign_in_statement101);
+                    root_0 = (Object)adaptor.nil();
+
+
+                    pushFollow(FOLLOW_assign_in_statement114);
                     assign6=assign();
 
                     state._fsp--;
@@ -297,12 +344,23 @@ public TreeAdaptor getTreeAdaptor() {
 
                     }
                     break;
+                case 5 :
+                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:26:13: declaration
+                    {
+                    root_0 = (Object)adaptor.nil();
+
+
+                    pushFollow(FOLLOW_declaration_in_statement129);
+                    declaration7=declaration();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, declaration7.getTree());
+
+                    }
+                    break;
 
             }
-
-
-            }
-
             retval.stop = input.LT(-1);
 
 
@@ -332,7 +390,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "expr"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:24:1: expr : term ( ( PLUS | MINUS ) ^ term )* ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:28:1: expr : ( ( PLUS | MINUS ) ^ term term | term );
     public final EsperParser.expr_return expr() throws RecognitionException {
         EsperParser.expr_return retval = new EsperParser.expr_return();
         retval.start = input.LT(1);
@@ -341,77 +399,90 @@ public TreeAdaptor getTreeAdaptor() {
         Object root_0 = null;
 
         Token set8=null;
-        EsperParser.term_return term7 =null;
-
         EsperParser.term_return term9 =null;
+
+        EsperParser.term_return term10 =null;
+
+        EsperParser.term_return term11 =null;
 
 
         Object set8_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:24:9: ( term ( ( PLUS | MINUS ) ^ term )* )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:24:11: term ( ( PLUS | MINUS ) ^ term )*
-            {
-            root_0 = (Object)adaptor.nil();
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:28:9: ( ( PLUS | MINUS ) ^ term term | term )
+            int alt3=2;
+            int LA3_0 = input.LA(1);
 
+            if ( (LA3_0==MINUS||LA3_0==PLUS) ) {
+                alt3=1;
+            }
+            else if ( ((LA3_0 >= DIGIT && LA3_0 <= DIV)||LA3_0==IDENTIFIER||LA3_0==MULT) ) {
+                alt3=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 3, 0, input);
 
-            pushFollow(FOLLOW_term_in_expr113);
-            term7=term();
-
-            state._fsp--;
-
-            adaptor.addChild(root_0, term7.getTree());
-
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:24:16: ( ( PLUS | MINUS ) ^ term )*
-            loop3:
-            do {
-                int alt3=2;
-                int LA3_0 = input.LA(1);
-
-                if ( (LA3_0==MINUS||LA3_0==PLUS) ) {
-                    alt3=1;
-                }
-
-
-                switch (alt3) {
-            	case 1 :
-            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:24:18: ( PLUS | MINUS ) ^ term
-            	    {
-            	    set8=(Token)input.LT(1);
-
-            	    set8=(Token)input.LT(1);
-
-            	    if ( input.LA(1)==MINUS||input.LA(1)==PLUS ) {
-            	        input.consume();
-            	        root_0 = (Object)adaptor.becomeRoot(
-            	        (Object)adaptor.create(set8)
-            	        , root_0);
-            	        state.errorRecovery=false;
-            	    }
-            	    else {
-            	        MismatchedSetException mse = new MismatchedSetException(null,input);
-            	        throw mse;
-            	    }
-
-
-            	    pushFollow(FOLLOW_term_in_expr129);
-            	    term9=term();
-
-            	    state._fsp--;
-
-            	    adaptor.addChild(root_0, term9.getTree());
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop3;
-                }
-            } while (true);
-
+                throw nvae;
 
             }
+            switch (alt3) {
+                case 1 :
+                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:28:11: ( PLUS | MINUS ) ^ term term
+                    {
+                    root_0 = (Object)adaptor.nil();
 
+
+                    set8=(Token)input.LT(1);
+
+                    set8=(Token)input.LT(1);
+
+                    if ( input.LA(1)==MINUS||input.LA(1)==PLUS ) {
+                        input.consume();
+                        root_0 = (Object)adaptor.becomeRoot(
+                        (Object)adaptor.create(set8)
+                        , root_0);
+                        state.errorRecovery=false;
+                    }
+                    else {
+                        MismatchedSetException mse = new MismatchedSetException(null,input);
+                        throw mse;
+                    }
+
+
+                    pushFollow(FOLLOW_term_in_expr160);
+                    term9=term();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, term9.getTree());
+
+                    pushFollow(FOLLOW_term_in_expr162);
+                    term10=term();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, term10.getTree());
+
+                    }
+                    break;
+                case 2 :
+                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:28:39: term
+                    {
+                    root_0 = (Object)adaptor.nil();
+
+
+                    pushFollow(FOLLOW_term_in_expr166);
+                    term11=term();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, term11.getTree());
+
+                    }
+                    break;
+
+            }
             retval.stop = input.LT(-1);
 
 
@@ -441,7 +512,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "term"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:25:1: term : factor ( ( MULT | DIV ) ^ factor )* ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:29:1: term : ( ( MULT | DIV ) ^ factor factor | factor );
     public final EsperParser.term_return term() throws RecognitionException {
         EsperParser.term_return retval = new EsperParser.term_return();
         retval.start = input.LT(1);
@@ -449,78 +520,91 @@ public TreeAdaptor getTreeAdaptor() {
 
         Object root_0 = null;
 
-        Token set11=null;
-        EsperParser.factor_return factor10 =null;
+        Token set12=null;
+        EsperParser.factor_return factor13 =null;
 
-        EsperParser.factor_return factor12 =null;
+        EsperParser.factor_return factor14 =null;
+
+        EsperParser.factor_return factor15 =null;
 
 
-        Object set11_tree=null;
+        Object set12_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:25:9: ( factor ( ( MULT | DIV ) ^ factor )* )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:25:11: factor ( ( MULT | DIV ) ^ factor )*
-            {
-            root_0 = (Object)adaptor.nil();
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:29:9: ( ( MULT | DIV ) ^ factor factor | factor )
+            int alt4=2;
+            int LA4_0 = input.LA(1);
 
+            if ( (LA4_0==DIV||LA4_0==MULT) ) {
+                alt4=1;
+            }
+            else if ( (LA4_0==DIGIT||LA4_0==IDENTIFIER) ) {
+                alt4=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 4, 0, input);
 
-            pushFollow(FOLLOW_factor_in_term143);
-            factor10=factor();
-
-            state._fsp--;
-
-            adaptor.addChild(root_0, factor10.getTree());
-
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:25:18: ( ( MULT | DIV ) ^ factor )*
-            loop4:
-            do {
-                int alt4=2;
-                int LA4_0 = input.LA(1);
-
-                if ( (LA4_0==DIV||LA4_0==MULT) ) {
-                    alt4=1;
-                }
-
-
-                switch (alt4) {
-            	case 1 :
-            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:25:20: ( MULT | DIV ) ^ factor
-            	    {
-            	    set11=(Token)input.LT(1);
-
-            	    set11=(Token)input.LT(1);
-
-            	    if ( input.LA(1)==DIV||input.LA(1)==MULT ) {
-            	        input.consume();
-            	        root_0 = (Object)adaptor.becomeRoot(
-            	        (Object)adaptor.create(set11)
-            	        , root_0);
-            	        state.errorRecovery=false;
-            	    }
-            	    else {
-            	        MismatchedSetException mse = new MismatchedSetException(null,input);
-            	        throw mse;
-            	    }
-
-
-            	    pushFollow(FOLLOW_factor_in_term158);
-            	    factor12=factor();
-
-            	    state._fsp--;
-
-            	    adaptor.addChild(root_0, factor12.getTree());
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop4;
-                }
-            } while (true);
-
+                throw nvae;
 
             }
+            switch (alt4) {
+                case 1 :
+                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:29:11: ( MULT | DIV ) ^ factor factor
+                    {
+                    root_0 = (Object)adaptor.nil();
 
+
+                    set12=(Token)input.LT(1);
+
+                    set12=(Token)input.LT(1);
+
+                    if ( input.LA(1)==DIV||input.LA(1)==MULT ) {
+                        input.consume();
+                        root_0 = (Object)adaptor.becomeRoot(
+                        (Object)adaptor.create(set12)
+                        , root_0);
+                        state.errorRecovery=false;
+                    }
+                    else {
+                        MismatchedSetException mse = new MismatchedSetException(null,input);
+                        throw mse;
+                    }
+
+
+                    pushFollow(FOLLOW_factor_in_term186);
+                    factor13=factor();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, factor13.getTree());
+
+                    pushFollow(FOLLOW_factor_in_term188);
+                    factor14=factor();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, factor14.getTree());
+
+                    }
+                    break;
+                case 2 :
+                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:29:41: factor
+                    {
+                    root_0 = (Object)adaptor.nil();
+
+
+                    pushFollow(FOLLOW_factor_in_term192);
+                    factor15=factor();
+
+                    state._fsp--;
+
+                    adaptor.addChild(root_0, factor15.getTree());
+
+                    }
+                    break;
+
+            }
             retval.stop = input.LT(-1);
 
 
@@ -550,7 +634,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "factor"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:26:1: factor : DIGIT ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:30:1: factor : ( DIGIT | IDENTIFIER );
     public final EsperParser.factor_return factor() throws RecognitionException {
         EsperParser.factor_return retval = new EsperParser.factor_return();
         retval.start = input.LT(1);
@@ -558,22 +642,30 @@ public TreeAdaptor getTreeAdaptor() {
 
         Object root_0 = null;
 
-        Token DIGIT13=null;
+        Token set16=null;
 
-        Object DIGIT13_tree=null;
+        Object set16_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:26:9: ( DIGIT )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:26:11: DIGIT
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:30:9: ( DIGIT | IDENTIFIER )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:
             {
             root_0 = (Object)adaptor.nil();
 
 
-            DIGIT13=(Token)match(input,DIGIT,FOLLOW_DIGIT_in_factor170); 
-            DIGIT13_tree = 
-            (Object)adaptor.create(DIGIT13)
-            ;
-            adaptor.addChild(root_0, DIGIT13_tree);
+            set16=(Token)input.LT(1);
+
+            if ( input.LA(1)==DIGIT||input.LA(1)==IDENTIFIER ) {
+                input.consume();
+                adaptor.addChild(root_0, 
+                (Object)adaptor.create(set16)
+                );
+                state.errorRecovery=false;
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                throw mse;
+            }
 
 
             }
@@ -607,7 +699,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "operator"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:27:1: operator : ( PLUS | MINUS | MULT | DIV );
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:31:1: operator : ( PLUS | MINUS | MULT | DIV );
     public final EsperParser.operator_return operator() throws RecognitionException {
         EsperParser.operator_return retval = new EsperParser.operator_return();
         retval.start = input.LT(1);
@@ -615,23 +707,23 @@ public TreeAdaptor getTreeAdaptor() {
 
         Object root_0 = null;
 
-        Token set14=null;
+        Token set17=null;
 
-        Object set14_tree=null;
+        Object set17_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:27:10: ( PLUS | MINUS | MULT | DIV )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:31:10: ( PLUS | MINUS | MULT | DIV )
             // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:
             {
             root_0 = (Object)adaptor.nil();
 
 
-            set14=(Token)input.LT(1);
+            set17=(Token)input.LT(1);
 
             if ( input.LA(1)==DIV||(input.LA(1) >= MINUS && input.LA(1) <= PLUS) ) {
                 input.consume();
                 adaptor.addChild(root_0, 
-                (Object)adaptor.create(set14)
+                (Object)adaptor.create(set17)
                 );
                 state.errorRecovery=false;
             }
@@ -665,6 +757,81 @@ public TreeAdaptor getTreeAdaptor() {
     // $ANTLR end "operator"
 
 
+    public static class declaration_return extends ParserRuleReturnScope {
+        Object tree;
+        public Object getTree() { return tree; }
+    };
+
+
+    // $ANTLR start "declaration"
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:32:1: declaration : DECLARE ^ IDENTIFIER VARTYPE ;
+    public final EsperParser.declaration_return declaration() throws RecognitionException {
+        EsperParser.declaration_return retval = new EsperParser.declaration_return();
+        retval.start = input.LT(1);
+
+
+        Object root_0 = null;
+
+        Token DECLARE18=null;
+        Token IDENTIFIER19=null;
+        Token VARTYPE20=null;
+
+        Object DECLARE18_tree=null;
+        Object IDENTIFIER19_tree=null;
+        Object VARTYPE20_tree=null;
+
+        try {
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:32:13: ( DECLARE ^ IDENTIFIER VARTYPE )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:32:15: DECLARE ^ IDENTIFIER VARTYPE
+            {
+            root_0 = (Object)adaptor.nil();
+
+
+            DECLARE18=(Token)match(input,DECLARE,FOLLOW_DECLARE_in_declaration234); 
+            DECLARE18_tree = 
+            (Object)adaptor.create(DECLARE18)
+            ;
+            root_0 = (Object)adaptor.becomeRoot(DECLARE18_tree, root_0);
+
+
+            IDENTIFIER19=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_declaration237); 
+            IDENTIFIER19_tree = 
+            (Object)adaptor.create(IDENTIFIER19)
+            ;
+            adaptor.addChild(root_0, IDENTIFIER19_tree);
+
+
+            VARTYPE20=(Token)match(input,VARTYPE,FOLLOW_VARTYPE_in_declaration239); 
+            VARTYPE20_tree = 
+            (Object)adaptor.create(VARTYPE20)
+            ;
+            adaptor.addChild(root_0, VARTYPE20_tree);
+
+
+            }
+
+            retval.stop = input.LT(-1);
+
+
+            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return retval;
+    }
+    // $ANTLR end "declaration"
+
+
     public static class assign_return extends ParserRuleReturnScope {
         Object tree;
         public Object getTree() { return tree; }
@@ -672,7 +839,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "assign"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:28:1: assign : IDENTIFIER EQ expr -> ^( EQ IDENTIFIER expr ) ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:33:1: assign : ASSIGN ^ IDENTIFIER expr ;
     public final EsperParser.assign_return assign() throws RecognitionException {
         EsperParser.assign_return retval = new EsperParser.assign_return();
         retval.start = input.LT(1);
@@ -680,68 +847,41 @@ public TreeAdaptor getTreeAdaptor() {
 
         Object root_0 = null;
 
-        Token IDENTIFIER15=null;
-        Token EQ16=null;
-        EsperParser.expr_return expr17 =null;
+        Token ASSIGN21=null;
+        Token IDENTIFIER22=null;
+        EsperParser.expr_return expr23 =null;
 
 
-        Object IDENTIFIER15_tree=null;
-        Object EQ16_tree=null;
-        RewriteRuleTokenStream stream_EQ=new RewriteRuleTokenStream(adaptor,"token EQ");
-        RewriteRuleTokenStream stream_IDENTIFIER=new RewriteRuleTokenStream(adaptor,"token IDENTIFIER");
-        RewriteRuleSubtreeStream stream_expr=new RewriteRuleSubtreeStream(adaptor,"rule expr");
+        Object ASSIGN21_tree=null;
+        Object IDENTIFIER22_tree=null;
+
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:28:8: ( IDENTIFIER EQ expr -> ^( EQ IDENTIFIER expr ) )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:28:10: IDENTIFIER EQ expr
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:33:8: ( ASSIGN ^ IDENTIFIER expr )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:33:10: ASSIGN ^ IDENTIFIER expr
             {
-            IDENTIFIER15=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_assign198);  
-            stream_IDENTIFIER.add(IDENTIFIER15);
+            root_0 = (Object)adaptor.nil();
 
 
-            EQ16=(Token)match(input,EQ,FOLLOW_EQ_in_assign200);  
-            stream_EQ.add(EQ16);
+            ASSIGN21=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assign247); 
+            ASSIGN21_tree = 
+            (Object)adaptor.create(ASSIGN21)
+            ;
+            root_0 = (Object)adaptor.becomeRoot(ASSIGN21_tree, root_0);
 
 
-            pushFollow(FOLLOW_expr_in_assign202);
-            expr17=expr();
+            IDENTIFIER22=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_assign250); 
+            IDENTIFIER22_tree = 
+            (Object)adaptor.create(IDENTIFIER22)
+            ;
+            adaptor.addChild(root_0, IDENTIFIER22_tree);
+
+
+            pushFollow(FOLLOW_expr_in_assign252);
+            expr23=expr();
 
             state._fsp--;
 
-            stream_expr.add(expr17.getTree());
-
-            // AST REWRITE
-            // elements: expr, IDENTIFIER, EQ
-            // token labels: 
-            // rule labels: retval
-            // token list labels: 
-            // rule list labels: 
-            // wildcard labels: 
-            retval.tree = root_0;
-            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-
-            root_0 = (Object)adaptor.nil();
-            // 28:29: -> ^( EQ IDENTIFIER expr )
-            {
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:28:32: ^( EQ IDENTIFIER expr )
-                {
-                Object root_1 = (Object)adaptor.nil();
-                root_1 = (Object)adaptor.becomeRoot(
-                stream_EQ.nextNode()
-                , root_1);
-
-                adaptor.addChild(root_1, 
-                stream_IDENTIFIER.nextNode()
-                );
-
-                adaptor.addChild(root_1, stream_expr.nextTree());
-
-                adaptor.addChild(root_0, root_1);
-                }
-
-            }
-
-
-            retval.tree = root_0;
+            adaptor.addChild(root_0, expr23.getTree());
 
             }
 
@@ -766,94 +906,469 @@ public TreeAdaptor getTreeAdaptor() {
     }
     // $ANTLR end "assign"
 
+
+    public static class ifthenelse_return extends ParserRuleReturnScope {
+        Object tree;
+        public Object getTree() { return tree; }
+    };
+
+
+    // $ANTLR start "ifthenelse"
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:34:1: ifthenelse : if_ ( elseif )* ( else_ )* ENDIF ;
+    public final EsperParser.ifthenelse_return ifthenelse() throws RecognitionException {
+        EsperParser.ifthenelse_return retval = new EsperParser.ifthenelse_return();
+        retval.start = input.LT(1);
+
+
+        Object root_0 = null;
+
+        Token ENDIF27=null;
+        EsperParser.if__return if_24 =null;
+
+        EsperParser.elseif_return elseif25 =null;
+
+        EsperParser.else__return else_26 =null;
+
+
+        Object ENDIF27_tree=null;
+
+        try {
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:34:12: ( if_ ( elseif )* ( else_ )* ENDIF )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:34:14: if_ ( elseif )* ( else_ )* ENDIF
+            {
+            root_0 = (Object)adaptor.nil();
+
+
+            pushFollow(FOLLOW_if__in_ifthenelse261);
+            if_24=if_();
+
+            state._fsp--;
+
+            adaptor.addChild(root_0, if_24.getTree());
+
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:34:18: ( elseif )*
+            loop5:
+            do {
+                int alt5=2;
+                int LA5_0 = input.LA(1);
+
+                if ( (LA5_0==ELSEIF) ) {
+                    alt5=1;
+                }
+
+
+                switch (alt5) {
+            	case 1 :
+            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:34:18: elseif
+            	    {
+            	    pushFollow(FOLLOW_elseif_in_ifthenelse263);
+            	    elseif25=elseif();
+
+            	    state._fsp--;
+
+            	    adaptor.addChild(root_0, elseif25.getTree());
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop5;
+                }
+            } while (true);
+
+
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:34:26: ( else_ )*
+            loop6:
+            do {
+                int alt6=2;
+                int LA6_0 = input.LA(1);
+
+                if ( (LA6_0==ELSE) ) {
+                    alt6=1;
+                }
+
+
+                switch (alt6) {
+            	case 1 :
+            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:34:26: else_
+            	    {
+            	    pushFollow(FOLLOW_else__in_ifthenelse266);
+            	    else_26=else_();
+
+            	    state._fsp--;
+
+            	    adaptor.addChild(root_0, else_26.getTree());
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop6;
+                }
+            } while (true);
+
+
+            ENDIF27=(Token)match(input,ENDIF,FOLLOW_ENDIF_in_ifthenelse269); 
+            ENDIF27_tree = 
+            (Object)adaptor.create(ENDIF27)
+            ;
+            adaptor.addChild(root_0, ENDIF27_tree);
+
+
+            }
+
+            retval.stop = input.LT(-1);
+
+
+            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return retval;
+    }
+    // $ANTLR end "ifthenelse"
+
+
+    public static class if__return extends ParserRuleReturnScope {
+        Object tree;
+        public Object getTree() { return tree; }
+    };
+
+
+    // $ANTLR start "if_"
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:35:1: if_ : IF ^ condition statements ;
+    public final EsperParser.if__return if_() throws RecognitionException {
+        EsperParser.if__return retval = new EsperParser.if__return();
+        retval.start = input.LT(1);
+
+
+        Object root_0 = null;
+
+        Token IF28=null;
+        EsperParser.condition_return condition29 =null;
+
+        EsperParser.statements_return statements30 =null;
+
+
+        Object IF28_tree=null;
+
+        try {
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:35:5: ( IF ^ condition statements )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:35:7: IF ^ condition statements
+            {
+            root_0 = (Object)adaptor.nil();
+
+
+            IF28=(Token)match(input,IF,FOLLOW_IF_in_if_277); 
+            IF28_tree = 
+            (Object)adaptor.create(IF28)
+            ;
+            root_0 = (Object)adaptor.becomeRoot(IF28_tree, root_0);
+
+
+            pushFollow(FOLLOW_condition_in_if_280);
+            condition29=condition();
+
+            state._fsp--;
+
+            adaptor.addChild(root_0, condition29.getTree());
+
+            pushFollow(FOLLOW_statements_in_if_282);
+            statements30=statements();
+
+            state._fsp--;
+
+            adaptor.addChild(root_0, statements30.getTree());
+
+            }
+
+            retval.stop = input.LT(-1);
+
+
+            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return retval;
+    }
+    // $ANTLR end "if_"
+
+
+    public static class elseif_return extends ParserRuleReturnScope {
+        Object tree;
+        public Object getTree() { return tree; }
+    };
+
+
+    // $ANTLR start "elseif"
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:36:1: elseif : ELSEIF ^ statements ;
+    public final EsperParser.elseif_return elseif() throws RecognitionException {
+        EsperParser.elseif_return retval = new EsperParser.elseif_return();
+        retval.start = input.LT(1);
+
+
+        Object root_0 = null;
+
+        Token ELSEIF31=null;
+        EsperParser.statements_return statements32 =null;
+
+
+        Object ELSEIF31_tree=null;
+
+        try {
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:36:8: ( ELSEIF ^ statements )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:36:10: ELSEIF ^ statements
+            {
+            root_0 = (Object)adaptor.nil();
+
+
+            ELSEIF31=(Token)match(input,ELSEIF,FOLLOW_ELSEIF_in_elseif290); 
+            ELSEIF31_tree = 
+            (Object)adaptor.create(ELSEIF31)
+            ;
+            root_0 = (Object)adaptor.becomeRoot(ELSEIF31_tree, root_0);
+
+
+            pushFollow(FOLLOW_statements_in_elseif293);
+            statements32=statements();
+
+            state._fsp--;
+
+            adaptor.addChild(root_0, statements32.getTree());
+
+            }
+
+            retval.stop = input.LT(-1);
+
+
+            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return retval;
+    }
+    // $ANTLR end "elseif"
+
+
+    public static class else__return extends ParserRuleReturnScope {
+        Object tree;
+        public Object getTree() { return tree; }
+    };
+
+
+    // $ANTLR start "else_"
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:37:1: else_ : ELSE ^ statements ;
+    public final EsperParser.else__return else_() throws RecognitionException {
+        EsperParser.else__return retval = new EsperParser.else__return();
+        retval.start = input.LT(1);
+
+
+        Object root_0 = null;
+
+        Token ELSE33=null;
+        EsperParser.statements_return statements34 =null;
+
+
+        Object ELSE33_tree=null;
+
+        try {
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:37:7: ( ELSE ^ statements )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:37:9: ELSE ^ statements
+            {
+            root_0 = (Object)adaptor.nil();
+
+
+            ELSE33=(Token)match(input,ELSE,FOLLOW_ELSE_in_else_301); 
+            ELSE33_tree = 
+            (Object)adaptor.create(ELSE33)
+            ;
+            root_0 = (Object)adaptor.becomeRoot(ELSE33_tree, root_0);
+
+
+            pushFollow(FOLLOW_statements_in_else_304);
+            statements34=statements();
+
+            state._fsp--;
+
+            adaptor.addChild(root_0, statements34.getTree());
+
+            }
+
+            retval.stop = input.LT(-1);
+
+
+            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return retval;
+    }
+    // $ANTLR end "else_"
+
+
+    public static class condition_return extends ParserRuleReturnScope {
+        Object tree;
+        public Object getTree() { return tree; }
+    };
+
+
+    // $ANTLR start "condition"
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:38:1: condition : ( LESSTHAN | EQUALTO | GREATERTHAN | LESSTHANEQUAL | GREATERTHANEQUAL ) ^ expr expr ;
+    public final EsperParser.condition_return condition() throws RecognitionException {
+        EsperParser.condition_return retval = new EsperParser.condition_return();
+        retval.start = input.LT(1);
+
+
+        Object root_0 = null;
+
+        Token set35=null;
+        EsperParser.expr_return expr36 =null;
+
+        EsperParser.expr_return expr37 =null;
+
+
+        Object set35_tree=null;
+
+        try {
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:38:11: ( ( LESSTHAN | EQUALTO | GREATERTHAN | LESSTHANEQUAL | GREATERTHANEQUAL ) ^ expr expr )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:38:13: ( LESSTHAN | EQUALTO | GREATERTHAN | LESSTHANEQUAL | GREATERTHANEQUAL ) ^ expr expr
+            {
+            root_0 = (Object)adaptor.nil();
+
+
+            set35=(Token)input.LT(1);
+
+            set35=(Token)input.LT(1);
+
+            if ( (input.LA(1) >= EQUALTO && input.LA(1) <= GREATERTHANEQUAL)||(input.LA(1) >= LESSTHAN && input.LA(1) <= LESSTHANEQUAL) ) {
+                input.consume();
+                root_0 = (Object)adaptor.becomeRoot(
+                (Object)adaptor.create(set35)
+                , root_0);
+                state.errorRecovery=false;
+            }
+            else {
+                MismatchedSetException mse = new MismatchedSetException(null,input);
+                throw mse;
+            }
+
+
+            pushFollow(FOLLOW_expr_in_condition333);
+            expr36=expr();
+
+            state._fsp--;
+
+            adaptor.addChild(root_0, expr36.getTree());
+
+            pushFollow(FOLLOW_expr_in_condition335);
+            expr37=expr();
+
+            state._fsp--;
+
+            adaptor.addChild(root_0, expr37.getTree());
+
+            }
+
+            retval.stop = input.LT(-1);
+
+
+            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+
+        finally {
+        	// do for sure before leaving
+        }
+        return retval;
+    }
+    // $ANTLR end "condition"
+
     // Delegated rules
 
 
-    protected DFA1 dfa1 = new DFA1(this);
-    static final String DFA1_eotS =
-        "\23\uffff";
-    static final String DFA1_eofS =
-        "\1\uffff\1\5\6\uffff\3\5\3\uffff\3\5\1\uffff\1\5";
-    static final String DFA1_minS =
-        "\2\4\1\6\2\4\2\uffff\14\4";
-    static final String DFA1_maxS =
-        "\1\7\1\12\1\6\2\4\2\uffff\1\4\3\12\3\4\3\12\1\4\1\12";
-    static final String DFA1_acceptS =
-        "\5\uffff\1\1\1\2\14\uffff";
-    static final String DFA1_specialS =
-        "\23\uffff}>";
-    static final String[] DFA1_transitionS = {
-            "\1\1\2\uffff\1\2",
-            "\1\6\1\3\1\uffff\1\6\1\4\1\3\1\4",
-            "\1\7",
-            "\1\10",
-            "\1\11",
-            "",
-            "",
-            "\1\12",
-            "\1\6\1\3\1\uffff\1\6\1\4\1\3\1\4",
-            "\1\6\1\13\1\uffff\1\6\1\4\1\13\1\4",
-            "\1\6\1\14\1\uffff\1\6\1\15\1\14\1\15",
-            "\1\16",
-            "\1\17",
-            "\1\20",
-            "\1\6\1\13\1\uffff\1\6\1\4\1\13\1\4",
-            "\1\6\1\14\1\uffff\1\6\1\15\1\14\1\15",
-            "\1\6\1\21\1\uffff\1\6\1\15\1\21\1\15",
-            "\1\22",
-            "\1\6\1\21\1\uffff\1\6\1\15\1\21\1\15"
-    };
-
-    static final short[] DFA1_eot = DFA.unpackEncodedString(DFA1_eotS);
-    static final short[] DFA1_eof = DFA.unpackEncodedString(DFA1_eofS);
-    static final char[] DFA1_min = DFA.unpackEncodedStringToUnsignedChars(DFA1_minS);
-    static final char[] DFA1_max = DFA.unpackEncodedStringToUnsignedChars(DFA1_maxS);
-    static final short[] DFA1_accept = DFA.unpackEncodedString(DFA1_acceptS);
-    static final short[] DFA1_special = DFA.unpackEncodedString(DFA1_specialS);
-    static final short[][] DFA1_transition;
-
-    static {
-        int numStates = DFA1_transitionS.length;
-        DFA1_transition = new short[numStates][];
-        for (int i=0; i<numStates; i++) {
-            DFA1_transition[i] = DFA.unpackEncodedString(DFA1_transitionS[i]);
-        }
-    }
-
-    class DFA1 extends DFA {
-
-        public DFA1(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 1;
-            this.eot = DFA1_eot;
-            this.eof = DFA1_eof;
-            this.min = DFA1_min;
-            this.max = DFA1_max;
-            this.accept = DFA1_accept;
-            this.special = DFA1_special;
-            this.transition = DFA1_transition;
-        }
-        public String getDescription() {
-            return "21:1: statements : ( statement | statement statements -> ^( statement statements ) );";
-        }
-    }
  
 
     public static final BitSet FOLLOW_statements_in_program55 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_statement_in_statements63 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_statement_in_statements79 = new BitSet(new long[]{0x0000000000000090L});
-    public static final BitSet FOLLOW_statements_in_statements81 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expr_in_statement97 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_assign_in_statement101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_term_in_expr113 = new BitSet(new long[]{0x0000000000000502L});
-    public static final BitSet FOLLOW_set_in_expr117 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_term_in_expr129 = new BitSet(new long[]{0x0000000000000502L});
-    public static final BitSet FOLLOW_factor_in_term143 = new BitSet(new long[]{0x0000000000000222L});
-    public static final BitSet FOLLOW_set_in_term147 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_factor_in_term158 = new BitSet(new long[]{0x0000000000000222L});
-    public static final BitSet FOLLOW_DIGIT_in_factor170 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_assign198 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_EQ_in_assign200 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_expr_in_assign202 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_statement_in_statements63 = new BitSet(new long[]{0x00000000001FF8F2L});
+    public static final BitSet FOLLOW_ifthenelse_in_statement72 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_condition_in_statement86 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_statement100 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_assign_in_statement114 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_declaration_in_statement129 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_expr151 = new BitSet(new long[]{0x00000000000840C0L});
+    public static final BitSet FOLLOW_term_in_expr160 = new BitSet(new long[]{0x00000000000840C0L});
+    public static final BitSet FOLLOW_term_in_expr162 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_term_in_expr166 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_term177 = new BitSet(new long[]{0x0000000000004040L});
+    public static final BitSet FOLLOW_factor_in_term186 = new BitSet(new long[]{0x0000000000004040L});
+    public static final BitSet FOLLOW_factor_in_term188 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_factor_in_term192 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DECLARE_in_declaration234 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_declaration237 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_VARTYPE_in_declaration239 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ASSIGN_in_assign247 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_assign250 = new BitSet(new long[]{0x00000000001C40C0L});
+    public static final BitSet FOLLOW_expr_in_assign252 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_if__in_ifthenelse261 = new BitSet(new long[]{0x0000000000000700L});
+    public static final BitSet FOLLOW_elseif_in_ifthenelse263 = new BitSet(new long[]{0x0000000000000700L});
+    public static final BitSet FOLLOW_else__in_ifthenelse266 = new BitSet(new long[]{0x0000000000000500L});
+    public static final BitSet FOLLOW_ENDIF_in_ifthenelse269 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IF_in_if_277 = new BitSet(new long[]{0x0000000000033800L});
+    public static final BitSet FOLLOW_condition_in_if_280 = new BitSet(new long[]{0x00000000001FF8F0L});
+    public static final BitSet FOLLOW_statements_in_if_282 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ELSEIF_in_elseif290 = new BitSet(new long[]{0x00000000001FF8F0L});
+    public static final BitSet FOLLOW_statements_in_elseif293 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ELSE_in_else_301 = new BitSet(new long[]{0x00000000001FF8F0L});
+    public static final BitSet FOLLOW_statements_in_else_304 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_condition312 = new BitSet(new long[]{0x00000000001C40C0L});
+    public static final BitSet FOLLOW_expr_in_condition333 = new BitSet(new long[]{0x00000000001C40C0L});
+    public static final BitSet FOLLOW_expr_in_condition335 = new BitSet(new long[]{0x0000000000000002L});
 
 }
