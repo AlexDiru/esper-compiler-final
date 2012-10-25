@@ -33,7 +33,8 @@ public class Program {
 		
 		//test();
 		
-		String code = "declare a int if eq a b if eq a b set a - b 1 endif set b + 3 2 elseif lt a b set a 2 else set a 3 endif set a + 8 7";
+		//String code = "declare a int if eq a b if eq a b print * b / 7 - a 1 set a - b 1 endif set b + 3 2 elseif lt a b set a 2 else set a 3 endif set a + 8 7 declare s str print \"hullo\"";
+		String code = " for from a 3\n print a\n print b\n endfor";
 		
 		EsperCompiler compiler = new EsperCompiler(code, true);
 		System.out.println("Compiled!");

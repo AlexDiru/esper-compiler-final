@@ -65,7 +65,7 @@ public class EsperCompiler {
 			try {
 			// Print parser output
 			System.out.println("Parser output: ");
-			printTree2(ast,0);
+			printTree(ast,0);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -98,36 +98,21 @@ public class EsperCompiler {
 		return "UNKNOWN TOKEN";
 	}
 	
-	private void printTree2(CommonTree ast, int indent) { 
+	//Given the root node of an abstract syntax tree, prints it
+	private void printTree(CommonTree ast, int indent) { 
 		if (ast != null) {
-			String indentstr = "";
+			//The string to represent child nodes of the AST
+			String indentString = "";
 			for (int i = 0; i < indent; i++)
-				indentstr += " ";
+				indentString += "  ";
+			
+			//Recursively print this node's children
 			for (int i = 0; i < ast.getChildCount(); i++) {
-				System.out.println(indentstr + ast.getChild(i).toString() + " [ " + getTokenName(ast.getChild(i).getType()) + " ] ");
-				printTree2((CommonTree)ast.getChild(i), indent+1);
+				System.out.println(indentString + ast.getChild(i).toString() + " [ " + getTokenName(ast.getChild(i).getType()) + " ] ");
+				printTree((CommonTree)ast.getChild(i), indent+1);
 			}
 				
 		}
-	}
-
-	private void printTree(CommonTree ast) {
-
-		try {
-			System.out.println(depth + " " + ast.getText() + " | "
-					+ getTokenName(ast.getToken().getType()));
-		} catch (Exception ex) {
-			System.out.println(depth + " root");
-		}
-
-		if (ast.getChildren() != null) {
-			depth += ">";
-			for (Object child : ast.getChildren()) {
-				printTree((CommonTree) child);
-			}
-			depth = depth.substring(depth.length() - 1);
-		}
-
 	}
 
 }
