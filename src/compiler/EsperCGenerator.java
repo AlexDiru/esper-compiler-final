@@ -2,18 +2,62 @@ package compiler;
 
 public class EsperCGenerator {
 	
-	public static String go(ParseTree parseRoot) {
+	/**
+	 * Generates the left brace with the required indentation
+	 * @param indent The number of tabs to indent with
+	 * @return The string with the left brace
+	 */
+	private static String leftBrace(int indent) {
+		return "\n" + getIndentString(indent) + "{\n";
+	}
 	
-		String code = "";
+	/**
+	 * Generates the right brace with the required indentation
+	 * @param indent The number of tabs to indent with
+	 * @return The string with the right brace
+	 */
+	private static String rightBrace(int indent) {
+		return getIndentString(indent) + "}\n";
+	}
+	
+	/**
+	 * Gets the string with the correct number of indentations
+	 * @param indent The number of indentations
+	 * @return The string of indentation
+	 */
+	private static String getIndentString(int indent) {
+		String indentString = "";
+		
+		for (int i = 0; i < indent; i++)
+			indentString += "\t";
+		return indentString;
+	}
+	
+	/**
+	 * Generates the C code for the given tree
+	 * @param parseRoot The root node of the tree to parse
+	 * @return The generated C code
+	 */
+	public static String generate(ParseTree parseRoot) {
+	
+		String code = "#include <stdio.h>\nint main() \n{\n";
 		
 		for (int i = 0; i < parseRoot.children.size(); i++) {
-			code += generate(parseRoot.children.get(i));
+			code += generateNode(parseRoot.children.get(i), 1);
 		}
 		
-		return code;
+		return code + "}\n";
 	}
 
-	public static String generate(ParseTree parseRoot) {
+	/**
+	 * Generates C code for the given node
+	 * @param parseRoot The node to generate the code for
+	 * @param indent The number of indents
+	 * @return The C code
+	 */
+	private static String generateNode(ParseTree parseRoot, int indent) {
+		
+		String indentString = getIndentString(indent);
 		
 		String code = "";
 		
@@ -26,7 +70,7 @@ public class EsperCGenerator {
 		case "DIV":
 			
 			code += " (";
-			code += generate(parseRoot.children.get(0));
+			code += generateNode(parseRoot.children.get(0), 0);
 			
 			if (parseRoot.attribute.equals("PLUS"))
 				code += " +";
@@ -37,7 +81,7 @@ public class EsperCGenerator {
 			else if (parseRoot.attribute.equals("DIV"))
 				code += " /";
 			
-			code += generate(parseRoot.children.get(1));
+			code += generateNode(parseRoot.children.get(1), 0);
 			code += " )";
 			break;
 			
@@ -49,7 +93,7 @@ public class EsperCGenerator {
 		case "EQUALTO":
 		
 			code += " (";
-			code += generate(parseRoot.children.get(0));
+			code += generateNode(parseRoot.children.get(0), 0);
 			
 			if (parseRoot.attribute.equals("LESSTHAN"))
 				code += " <";
@@ -62,7 +106,7 @@ public class EsperCGenerator {
 			else
 				code += " ==";
 
-			code += generate(parseRoot.children.get(1));
+			code += generateNode(parseRoot.children.get(1), 0);
 			code += ")";
 			
 			break;
@@ -76,28 +120,28 @@ public class EsperCGenerator {
 		case "WHILE":
 			
 			code += " while";
-			code += generate(parseRoot.children.get(0));
-			code += " {";
+			code += generateNode(parseRoot.children.get(0), 0);
+			code += leftBrace(indent);
 			
 			//Generate the statements
 			for (int i = 1; i < parseRoot.children.size(); i++)
-				code += generate(parseRoot.children.get(i));
+				code += generateNode(parseRoot.children.get(i), indent + 1);
 			
-			code += " }";
+			code += rightBrace(indent);
 			
 			break;
 			
 		//Variable declaration
 		case "DECLARE":
 			
-			code += " " + parseRoot.children.get(1).value + " " + parseRoot.children.get(0).value + ";";
+			code += indentString + parseRoot.children.get(1).value + " " + parseRoot.children.get(0).value + ";\n";
 			
 			break;
 			
 		//Variable setting
 		case "ASSIGN":
 		
-			code += " " + parseRoot.children.get(0).value + " = " + parseRoot.children.get(1).value + ";";
+			code += indentString + parseRoot.children.get(0).value + " = " + parseRoot.children.get(1).value + ";\n";
 			
 			break;
 			
@@ -116,52 +160,52 @@ public class EsperCGenerator {
 			else
 				code += " >= " + target + "; " + indexIdentifier + "--";
 			
-			code += ") {";
+			code += ")" + leftBrace(indent);
 			
 			//Generate the statements
 			for (int i = 1; i < parseRoot.children.size(); i++)
-				code += generate(parseRoot.children.get(i));
+				code += generateNode(parseRoot.children.get(i), indent + 1);
 			
-			code += " }";
+			code += rightBrace(indent);
 			
 			break;
 			
 		//If statement
 		case "IF":
 			
-			code += " if" + generate(parseRoot.children.get(0)) + " {";
+			code += indentString + "if" + generateNode(parseRoot.children.get(0), 0) + leftBrace(indent);
 			
 			//Generate the statements
 			for (int i = 1; i < parseRoot.children.size(); i++)
-				code += generate(parseRoot.children.get(i));
+				code += generateNode(parseRoot.children.get(i), indent + 1);
 			
-			code += " }";
+			code += rightBrace(indent);
 			
 			break;
 			
 		//Else if statement
 		case "ELSEIF":
 			
-			code += " else if" + generate(parseRoot.children.get(0)) + " {";
+			code += indentString + "else if" + generateNode(parseRoot.children.get(0), 0) + leftBrace(indent);
 			
 			//Generate the statements
 			for (int i = 1; i < parseRoot.children.size(); i++)
-				code += generate(parseRoot.children.get(i));
+				code += generateNode(parseRoot.children.get(i), indent + 1);
 			
-			code += " }";
+			code += rightBrace(indent);
 			
 			break;
 			
 		//Else statement
 		case "ELSE":
 			
-			code += " else {";
+			code += indentString + "else " + leftBrace(indent);
 			
 			//Generate the statements
 			for (int i = 0; i < parseRoot.children.size(); i++)
-				code += generate(parseRoot.children.get(i));
+				code += generateNode(parseRoot.children.get(i), indent + 1);
 			
-			code += " }";
+			code += rightBrace(indent);
 			
 			break;
 			
@@ -169,16 +213,16 @@ public class EsperCGenerator {
 		//Print function
 		case "PRINT":
 			
-			code += " printf(\"";
+			code += indentString + "printf(\"";
 			
 			//Need a variable list to determine type
 			
 			code += "%s\\n\",";
 
 			for (int i = 0; i < parseRoot.children.size(); i++)
-				code += generate(parseRoot.children.get(i));
+				code += generateNode(parseRoot.children.get(i), indent + 1);
 			
-			code += ");";
+			code += ");\n";
 			
 			break;
 			

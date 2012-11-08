@@ -89,7 +89,7 @@ public class EsperCompiler {
 		}
 		
 		EsperCGenerator cgen = new EsperCGenerator();
-		System.out.println(cgen.go(parseRoot));
+		System.out.println(cgen.generate(parseRoot));
 	}
 
 	// Uses reflection to get the token names from their types
