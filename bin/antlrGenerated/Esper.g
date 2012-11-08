@@ -26,6 +26,7 @@ statement : ifthenelse
           | declaration 
           | print
           | forloop
+          | whileloop
           ;
 expr    : (PLUS|MINUS)^ expr expr 
         | term 
@@ -57,8 +58,11 @@ print : PRINT^ expr ;
 vartype : VARINT
         | VARSTRING
         ;
-forloop : FOR (TO | FROM) factor factor statements ENDFOR ;
-whileloop : WHILE condition statements ENDWHILE;
+forloop : for_ ENDFOR ;
+for_ : FOR^ forgap statements ; 
+forgap : (TO | FROM)^ factor factor;
+whileloop : while_ ENDWHILE;
+while_ : WHILE^ condition statements  ; 
  
 /*------------------------------------------------------------------
  * LEXER RULES
