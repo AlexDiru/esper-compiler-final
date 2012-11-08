@@ -11,7 +11,7 @@ public class EsperPostParser {
 		
 		parseTree = new ParseTree();
 		parseTree.value = ast.getText();
-		parseTree.attribute = Integer.toString(ast.getType());
+		parseTree.attribute = EsperCompiler.getTokenName(Integer.parseInt(Integer.toString(ast.getType())));
 
 		for (int i = 0; i < ast.getChildCount(); i++) {
 			parseTree.children.add(read(ast.getChild(i)));
@@ -24,7 +24,7 @@ public class EsperPostParser {
 
 		ParseTree parent = new ParseTree();
 		parent.value = ast.toString();
-		parent.attribute = Integer.toString(ast.getType());
+		parent.attribute = EsperCompiler.getTokenName(Integer.parseInt(Integer.toString(ast.getType())));
 		
 		for (int i = 0; i < ast.getChildCount(); i++) {
 			parent.children.add(read(ast.getChild(i)));

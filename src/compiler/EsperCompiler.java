@@ -87,6 +87,9 @@ public class EsperCompiler {
 			// Print parser output
 			parseRoot.print(0);
 		}
+		
+		EsperCGenerator cgen = new EsperCGenerator();
+		System.out.println(cgen.go(parseRoot));
 	}
 
 	// Uses reflection to get the token names from their types

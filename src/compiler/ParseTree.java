@@ -25,7 +25,7 @@ public class ParseTree {
 		//Recursively print this node's children
 		for (int i = 0; i < children.size(); i++) {
 			//Print the child node's details
-			System.out.println(indentString + children.get(i).value + " [ " + EsperCompiler.getTokenName(Integer.parseInt(children.get(i).attribute)) + " ] ");
+			System.out.println(indentString + children.get(i).value + " [ " + children.get(i).attribute + " ] ");
 			children.get(i).print(indent+1);		
 		}
 	}
