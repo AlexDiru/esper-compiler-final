@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g 2012-11-08 17:38:06
+// $ANTLR 3.4 C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g 2012-11-08 21:16:17
 
   package antlrGenerated;
 
@@ -313,10 +313,10 @@ public class EsperLexer extends Lexer {
         try {
             int _type = VARSTRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:78:11: ( 'str' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:78:13: 'str'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:78:11: ( 'string' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:78:13: 'string'
             {
-            match("str"); 
+            match("string"); 
 
 
 
@@ -1212,36 +1212,37 @@ public class EsperLexer extends Lexer {
     protected DFA7 dfa7 = new DFA7(this);
     static final String DFA7_eotS =
         "\2\uffff\1\24\4\uffff\11\27\5\uffff\1\27\1\45\1\uffff\2\27\1\51"+
-        "\1\53\1\55\6\27\1\64\1\65\1\uffff\1\66\1\67\1\70\1\uffff\1\71\1"+
-        "\uffff\1\27\1\uffff\2\27\1\100\1\27\1\102\1\27\6\uffff\1\27\1\106"+
-        "\4\27\1\uffff\1\27\1\uffff\1\27\1\55\1\27\1\uffff\1\116\3\27\1\122"+
-        "\1\123\1\124\1\uffff\1\125\2\27\4\uffff\1\27\1\131\1\132\2\uffff";
+        "\1\53\1\55\6\27\1\64\1\65\1\uffff\1\27\1\67\1\70\1\uffff\1\71\1"+
+        "\uffff\1\27\1\uffff\2\27\1\100\1\27\1\102\1\27\2\uffff\1\27\3\uffff"+
+        "\1\27\1\107\4\27\1\uffff\1\27\1\uffff\2\27\1\55\1\27\1\uffff\1\120"+
+        "\3\27\1\124\1\125\1\126\1\127\1\uffff\1\130\2\27\5\uffff\1\27\1"+
+        "\134\1\135\2\uffff";
     static final String DFA7_eofS =
-        "\133\uffff";
+        "\136\uffff";
     static final String DFA7_minS =
         "\1\11\1\uffff\1\55\4\uffff\1\146\1\145\2\164\1\154\1\145\1\162\1"+
         "\157\1\150\5\uffff\1\143\1\55\1\uffff\1\162\1\164\3\55\1\163\1\144"+
-        "\1\143\1\151\1\162\1\151\2\55\1\uffff\3\55\1\uffff\1\55\1\uffff"+
-        "\1\141\1\uffff\1\145\1\146\1\55\1\156\1\55\1\154\6\uffff\1\154\1"+
-        "\55\1\146\1\157\1\150\1\141\1\uffff\1\164\1\uffff\1\145\1\55\1\146"+
-        "\1\uffff\1\55\1\162\1\151\1\162\3\55\1\uffff\1\55\1\154\1\145\4"+
-        "\uffff\1\145\2\55\2\uffff";
+        "\1\143\1\151\1\162\1\151\2\55\1\uffff\1\151\2\55\1\uffff\1\55\1"+
+        "\uffff\1\141\1\uffff\1\145\1\146\1\55\1\156\1\55\1\154\2\uffff\1"+
+        "\156\3\uffff\1\154\1\55\1\146\1\157\1\150\1\141\1\uffff\1\164\1"+
+        "\uffff\1\145\1\147\1\55\1\146\1\uffff\1\55\1\162\1\151\1\162\4\55"+
+        "\1\uffff\1\55\1\154\1\145\5\uffff\1\145\2\55\2\uffff";
     static final String DFA7_maxS =
         "\1\172\1\uffff\1\71\4\uffff\1\156\3\164\1\161\1\145\1\162\1\157"+
         "\1\150\5\uffff\1\164\1\172\1\uffff\1\162\1\164\3\172\1\163\1\144"+
-        "\1\143\1\151\1\162\1\151\2\172\1\uffff\3\172\1\uffff\1\172\1\uffff"+
-        "\1\141\1\uffff\1\145\1\167\1\172\1\156\1\172\1\154\6\uffff\1\154"+
-        "\1\172\1\146\1\157\1\150\1\141\1\uffff\1\164\1\uffff\1\145\1\172"+
-        "\1\146\1\uffff\1\172\1\162\1\151\1\162\3\172\1\uffff\1\172\1\154"+
-        "\1\145\4\uffff\1\145\2\172\2\uffff";
+        "\1\143\1\151\1\162\1\151\2\172\1\uffff\1\151\2\172\1\uffff\1\172"+
+        "\1\uffff\1\141\1\uffff\1\145\1\167\1\172\1\156\1\172\1\154\2\uffff"+
+        "\1\156\3\uffff\1\154\1\172\1\146\1\157\1\150\1\141\1\uffff\1\164"+
+        "\1\uffff\1\145\1\147\1\172\1\146\1\uffff\1\172\1\162\1\151\1\162"+
+        "\4\172\1\uffff\1\172\1\154\1\145\5\uffff\1\145\2\172\2\uffff";
     static final String DFA7_acceptS =
         "\1\uffff\1\1\1\uffff\1\2\1\3\1\5\1\6\11\uffff\1\33\1\34\1\35\1\36"+
         "\1\4\2\uffff\1\33\15\uffff\1\21\3\uffff\1\11\1\uffff\1\12\1\uffff"+
-        "\1\15\6\uffff\1\7\1\30\1\10\1\17\1\13\1\14\6\uffff\1\27\1\uffff"+
-        "\1\26\3\uffff\1\23\7\uffff\1\24\3\uffff\1\20\1\31\1\22\1\25\3\uffff"+
-        "\1\16\1\32";
+        "\1\15\6\uffff\1\7\1\30\1\uffff\1\17\1\13\1\14\6\uffff\1\27\1\uffff"+
+        "\1\26\4\uffff\1\23\10\uffff\1\24\3\uffff\1\20\1\31\1\10\1\22\1\25"+
+        "\3\uffff\1\16\1\32";
     static final String DFA7_specialS =
-        "\133\uffff}>";
+        "\136\uffff}>";
     static final String[] DFA7_transitionS = {
             "\2\1\1\uffff\2\1\22\uffff\1\1\1\uffff\1\21\7\uffff\1\5\1\4\1"+
             "\uffff\1\2\1\uffff\1\6\12\3\1\uffff\1\23\5\uffff\32\22\6\uffff"+
@@ -1284,7 +1285,7 @@ public class EsperLexer extends Lexer {
             "\1\27\2\uffff\12\27\47\uffff\32\27",
             "\1\27\2\uffff\12\27\47\uffff\32\27",
             "",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
+            "\1\66",
             "\1\27\2\uffff\12\27\47\uffff\32\27",
             "\1\27\2\uffff\12\27\47\uffff\32\27",
             "",
@@ -1300,39 +1301,42 @@ public class EsperLexer extends Lexer {
             "\1\103",
             "",
             "",
-            "",
-            "",
-            "",
-            "",
             "\1\104",
-            "\1\27\2\uffff\12\27\47\uffff\10\27\1\105\21\27",
-            "\1\107",
+            "",
+            "",
+            "",
+            "\1\105",
+            "\1\27\2\uffff\12\27\47\uffff\10\27\1\106\21\27",
             "\1\110",
             "\1\111",
             "\1\112",
-            "",
             "\1\113",
             "",
             "\1\114",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
-            "\1\115",
             "",
+            "\1\115",
+            "\1\116",
             "\1\27\2\uffff\12\27\47\uffff\32\27",
             "\1\117",
-            "\1\120",
+            "",
+            "\1\27\2\uffff\12\27\47\uffff\32\27",
             "\1\121",
+            "\1\122",
+            "\1\123",
             "\1\27\2\uffff\12\27\47\uffff\32\27",
             "\1\27\2\uffff\12\27\47\uffff\32\27",
             "\1\27\2\uffff\12\27\47\uffff\32\27",
+            "\1\27\2\uffff\12\27\47\uffff\32\27",
             "",
             "\1\27\2\uffff\12\27\47\uffff\32\27",
-            "\1\126",
-            "\1\127",
+            "\1\131",
+            "\1\132",
             "",
             "",
             "",
             "",
-            "\1\130",
+            "",
+            "\1\133",
             "\1\27\2\uffff\12\27\47\uffff\32\27",
             "\1\27\2\uffff\12\27\47\uffff\32\27",
             "",

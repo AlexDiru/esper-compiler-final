@@ -1,11 +1,41 @@
 package compiler;
 
+import java.util.ArrayList;
+
 import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.Tree;
 
 public class EsperPostParser {
 	
 	private ParseTree parseTree;
+	public ArrayList<VariableInformation> variableList = new ArrayList<VariableInformation>();
+	
+	public void getVariableList() {
+		getNodeVariableList(parseTree);
+	}
+	
+	private void getNodeVariableList(ParseTree node) {
+		
+		if (node.attribute.equals("DECLARE"))
+			if (!containsVariable(node.children.get(0).value))
+				variableList.add(new VariableInformation(node.children.get(0).value, node.children.get(1).value));
+		
+		//Iterate children
+		for (int i = 0; i < node.children.size(); i++)
+			getNodeVariableList(node.children.get(i));
+	}
+	
+	/**
+	 * If the variable list has a variable with a certain name
+	 * @param name The name to check for
+	 * @return The existance of the variable
+	 */
+	private boolean containsVariable(String name) {
+		for (VariableInformation var : variableList)
+			if (var.name.equals(name))
+				return true;
+		return false;
+	}
 	
 	/**
 	 * Converts ANTLRs CommonTree to a ParseTree to aid code generation

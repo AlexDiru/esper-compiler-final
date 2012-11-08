@@ -1,6 +1,18 @@
 package compiler;
 
+import java.util.ArrayList;
+
 public class EsperCGenerator {
+	
+	private static ArrayList<VariableInformation> variableList;
+	
+	private static String getVariableTypeFromName(String name) {
+	
+		for (VariableInformation var : variableList)
+			if (var.name.equals(name))
+				return var.type;
+		return "unknown";
+	}
 	
 	/**
 	 * Generates the left brace with the required indentation
@@ -36,10 +48,13 @@ public class EsperCGenerator {
 	/**
 	 * Generates the C code for the given tree
 	 * @param parseRoot The root node of the tree to parse
+	 * @param tvariableList The list of variables in the code
 	 * @return The generated C code
 	 */
-	public static String generate(ParseTree parseRoot) {
+	public static String generate(ParseTree parseRoot, ArrayList<VariableInformation> tvariableList) {
 	
+		variableList = tvariableList;
+		
 		String code = "#include <stdio.h>\nint main() \n{\n";
 		
 		for (int i = 0; i < parseRoot.children.size(); i++) {
@@ -216,8 +231,15 @@ public class EsperCGenerator {
 			code += indentString + "printf(\"";
 			
 			//Need a variable list to determine type
+			String variableName = parseRoot.children.get(0).value;
+			String variableType = getVariableTypeFromName(variableName);
 			
-			code += "%s\\n\",";
+			if (variableType.equals("int"))
+				code += "%d";
+			else if (variableType.equals("string"))
+				code += "%s";
+			
+			code += "\\n\",";
 
 			for (int i = 0; i < parseRoot.children.size(); i++)
 				code += generateNode(parseRoot.children.get(i), indent + 1);

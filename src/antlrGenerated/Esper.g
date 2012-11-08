@@ -75,7 +75,7 @@ MINUS: '-' ;
 MULT: '*' ;
 DIV: '/' ;
 VARINT: 'int' ;
-VARSTRING : 'str' ;
+VARSTRING : 'string' ;
 LESSTHAN : 'lt' ;
 GREATERTHAN : 'gt' ;
 LESSTHANEQUAL : 'lte' ;
