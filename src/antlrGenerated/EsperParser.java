@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g 2012-10-25 20:27:38
+// $ANTLR 3.4 C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g 2012-11-08 17:38:05
 
   package antlrGenerated;
 
@@ -14,36 +14,36 @@ import org.antlr.runtime.tree.*;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class EsperParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ASSIGN", "CHARACTER", "DECLARE", "DIGITS", "DIV", "ELSE", "ELSEIF", "ENDFOR", "ENDIF", "ENDWHILE", "EQUALTO", "FOR", "FROM", "GREATERTHAN", "GREATERTHANEQUAL", "IDENTIFIER", "IF", "LESSTHAN", "LESSTHANEQUAL", "MINUS", "MULT", "PLUS", "PRINT", "SEMICOLON", "STRING", "TO", "VARINT", "VARSTRING", "WHILE", "WHITESPACE"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ASSIGN", "CHARACTER", "DECLARE", "DECREASING", "DIGITS", "DIV", "ELSE", "ELSEIF", "ENDFOR", "ENDIF", "ENDWHILE", "EQUALTO", "FOR", "GREATERTHAN", "GREATERTHANEQUAL", "IDENTIFIER", "IF", "INCREASING", "LESSTHAN", "LESSTHANEQUAL", "MINUS", "MULT", "PLUS", "PRINT", "SEMICOLON", "STRING", "VARINT", "VARSTRING", "WHILE", "WHITESPACE"
     };
 
     public static final int EOF=-1;
     public static final int ASSIGN=4;
     public static final int CHARACTER=5;
     public static final int DECLARE=6;
-    public static final int DIGITS=7;
-    public static final int DIV=8;
-    public static final int ELSE=9;
-    public static final int ELSEIF=10;
-    public static final int ENDFOR=11;
-    public static final int ENDIF=12;
-    public static final int ENDWHILE=13;
-    public static final int EQUALTO=14;
-    public static final int FOR=15;
-    public static final int FROM=16;
+    public static final int DECREASING=7;
+    public static final int DIGITS=8;
+    public static final int DIV=9;
+    public static final int ELSE=10;
+    public static final int ELSEIF=11;
+    public static final int ENDFOR=12;
+    public static final int ENDIF=13;
+    public static final int ENDWHILE=14;
+    public static final int EQUALTO=15;
+    public static final int FOR=16;
     public static final int GREATERTHAN=17;
     public static final int GREATERTHANEQUAL=18;
     public static final int IDENTIFIER=19;
     public static final int IF=20;
-    public static final int LESSTHAN=21;
-    public static final int LESSTHANEQUAL=22;
-    public static final int MINUS=23;
-    public static final int MULT=24;
-    public static final int PLUS=25;
-    public static final int PRINT=26;
-    public static final int SEMICOLON=27;
-    public static final int STRING=28;
-    public static final int TO=29;
+    public static final int INCREASING=21;
+    public static final int LESSTHAN=22;
+    public static final int LESSTHANEQUAL=23;
+    public static final int MINUS=24;
+    public static final int MULT=25;
+    public static final int PLUS=26;
+    public static final int PRINT=27;
+    public static final int SEMICOLON=28;
+    public static final int STRING=29;
     public static final int VARINT=30;
     public static final int VARSTRING=31;
     public static final int WHILE=32;
@@ -166,7 +166,7 @@ public TreeAdaptor getTreeAdaptor() {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==ASSIGN||(LA1_0 >= DECLARE && LA1_0 <= DIV)||(LA1_0 >= EQUALTO && LA1_0 <= FOR)||(LA1_0 >= GREATERTHAN && LA1_0 <= PRINT)||LA1_0==STRING||LA1_0==WHILE) ) {
+                if ( (LA1_0==ASSIGN||LA1_0==DECLARE||(LA1_0 >= DIGITS && LA1_0 <= DIV)||(LA1_0 >= EQUALTO && LA1_0 <= IF)||(LA1_0 >= LESSTHAN && LA1_0 <= PRINT)||LA1_0==STRING||LA1_0==WHILE) ) {
                     alt1=1;
                 }
 
@@ -1706,7 +1706,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "forgap"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:63:1: forgap : ( TO | FROM ) ^ factor factor ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:63:1: forgap : ( INCREASING | DECREASING ) ^ factor factor ;
     public final EsperParser.forgap_return forgap() throws RecognitionException {
         EsperParser.forgap_return retval = new EsperParser.forgap_return();
         retval.start = input.LT(1);
@@ -1723,8 +1723,8 @@ public TreeAdaptor getTreeAdaptor() {
         Object set50_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:63:8: ( ( TO | FROM ) ^ factor factor )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:63:10: ( TO | FROM ) ^ factor factor
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:63:8: ( ( INCREASING | DECREASING ) ^ factor factor )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:63:10: ( INCREASING | DECREASING ) ^ factor factor
             {
             root_0 = (Object)adaptor.nil();
 
@@ -1733,7 +1733,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             set50=(Token)input.LT(1);
 
-            if ( input.LA(1)==FROM||input.LA(1)==TO ) {
+            if ( input.LA(1)==DECREASING||input.LA(1)==INCREASING ) {
                 input.consume();
                 root_0 = (Object)adaptor.becomeRoot(
                 (Object)adaptor.create(set50)
@@ -1930,7 +1930,7 @@ public TreeAdaptor getTreeAdaptor() {
  
 
     public static final BitSet FOLLOW_statements_in_program55 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_statement_in_statements63 = new BitSet(new long[]{0x0000000117FEC1D2L});
+    public static final BitSet FOLLOW_statement_in_statements63 = new BitSet(new long[]{0x000000012FDF8352L});
     public static final BitSet FOLLOW_ifthenelse_in_statement72 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_condition_in_statement86 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_expr_in_statement100 = new BitSet(new long[]{0x0000000000000002L});
@@ -1939,49 +1939,49 @@ public TreeAdaptor getTreeAdaptor() {
     public static final BitSet FOLLOW_print_in_statement144 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_forloop_in_statement158 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_whileloop_in_statement172 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_expr193 = new BitSet(new long[]{0x0000000013880180L});
-    public static final BitSet FOLLOW_expr_in_expr200 = new BitSet(new long[]{0x0000000013880180L});
+    public static final BitSet FOLLOW_set_in_expr193 = new BitSet(new long[]{0x0000000027080300L});
+    public static final BitSet FOLLOW_expr_in_expr200 = new BitSet(new long[]{0x0000000027080300L});
     public static final BitSet FOLLOW_expr_in_expr202 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_term_in_expr215 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_STRING_in_expr228 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_term265 = new BitSet(new long[]{0x0000000013880180L});
-    public static final BitSet FOLLOW_expr_in_term272 = new BitSet(new long[]{0x0000000013880180L});
+    public static final BitSet FOLLOW_set_in_term265 = new BitSet(new long[]{0x0000000027080300L});
+    public static final BitSet FOLLOW_expr_in_term272 = new BitSet(new long[]{0x0000000027080300L});
     public static final BitSet FOLLOW_expr_in_term274 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_factor_in_term287 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_DECLARE_in_declaration343 = new BitSet(new long[]{0x0000000000080000L});
     public static final BitSet FOLLOW_IDENTIFIER_in_declaration346 = new BitSet(new long[]{0x00000000C0000000L});
     public static final BitSet FOLLOW_vartype_in_declaration348 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ASSIGN_in_assign356 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_assign359 = new BitSet(new long[]{0x0000000013880180L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_assign359 = new BitSet(new long[]{0x0000000027080300L});
     public static final BitSet FOLLOW_expr_in_assign361 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_if__in_ifthenelse370 = new BitSet(new long[]{0x0000000000001600L});
-    public static final BitSet FOLLOW_elseif_in_ifthenelse372 = new BitSet(new long[]{0x0000000000001600L});
-    public static final BitSet FOLLOW_else__in_ifthenelse375 = new BitSet(new long[]{0x0000000000001200L});
+    public static final BitSet FOLLOW_if__in_ifthenelse370 = new BitSet(new long[]{0x0000000000002C00L});
+    public static final BitSet FOLLOW_elseif_in_ifthenelse372 = new BitSet(new long[]{0x0000000000002C00L});
+    public static final BitSet FOLLOW_else__in_ifthenelse375 = new BitSet(new long[]{0x0000000000002400L});
     public static final BitSet FOLLOW_ENDIF_in_ifthenelse378 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IF_in_if_386 = new BitSet(new long[]{0x0000000000664000L});
-    public static final BitSet FOLLOW_condition_in_if_389 = new BitSet(new long[]{0x0000000117FEC1D0L});
+    public static final BitSet FOLLOW_IF_in_if_386 = new BitSet(new long[]{0x0000000000C68000L});
+    public static final BitSet FOLLOW_condition_in_if_389 = new BitSet(new long[]{0x000000012FDF8350L});
     public static final BitSet FOLLOW_statements_in_if_391 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ELSEIF_in_elseif399 = new BitSet(new long[]{0x0000000117FEC1D0L});
+    public static final BitSet FOLLOW_ELSEIF_in_elseif399 = new BitSet(new long[]{0x000000012FDF8350L});
     public static final BitSet FOLLOW_statements_in_elseif402 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ELSE_in_else_410 = new BitSet(new long[]{0x0000000117FEC1D0L});
+    public static final BitSet FOLLOW_ELSE_in_else_410 = new BitSet(new long[]{0x000000012FDF8350L});
     public static final BitSet FOLLOW_statements_in_else_413 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_conditionaloperator_in_condition421 = new BitSet(new long[]{0x0000000013880180L});
-    public static final BitSet FOLLOW_expr_in_condition424 = new BitSet(new long[]{0x0000000013880180L});
+    public static final BitSet FOLLOW_conditionaloperator_in_condition421 = new BitSet(new long[]{0x0000000027080300L});
+    public static final BitSet FOLLOW_expr_in_condition424 = new BitSet(new long[]{0x0000000027080300L});
     public static final BitSet FOLLOW_expr_in_condition426 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PRINT_in_print562 = new BitSet(new long[]{0x0000000013880180L});
+    public static final BitSet FOLLOW_PRINT_in_print562 = new BitSet(new long[]{0x0000000027080300L});
     public static final BitSet FOLLOW_expr_in_print565 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_for__in_forloop601 = new BitSet(new long[]{0x0000000000000800L});
+    public static final BitSet FOLLOW_for__in_forloop601 = new BitSet(new long[]{0x0000000000001000L});
     public static final BitSet FOLLOW_ENDFOR_in_forloop603 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FOR_in_for_611 = new BitSet(new long[]{0x0000000020010000L});
-    public static final BitSet FOLLOW_forgap_in_for_614 = new BitSet(new long[]{0x0000000117FEC1D0L});
+    public static final BitSet FOLLOW_FOR_in_for_611 = new BitSet(new long[]{0x0000000000200080L});
+    public static final BitSet FOLLOW_forgap_in_for_614 = new BitSet(new long[]{0x000000012FDF8350L});
     public static final BitSet FOLLOW_statements_in_for_616 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_forgap625 = new BitSet(new long[]{0x0000000000080080L});
-    public static final BitSet FOLLOW_factor_in_forgap634 = new BitSet(new long[]{0x0000000000080080L});
+    public static final BitSet FOLLOW_set_in_forgap625 = new BitSet(new long[]{0x0000000000080100L});
+    public static final BitSet FOLLOW_factor_in_forgap634 = new BitSet(new long[]{0x0000000000080100L});
     public static final BitSet FOLLOW_factor_in_forgap636 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_while__in_whileloop643 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_while__in_whileloop643 = new BitSet(new long[]{0x0000000000004000L});
     public static final BitSet FOLLOW_ENDWHILE_in_whileloop645 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WHILE_in_while_652 = new BitSet(new long[]{0x0000000000664000L});
-    public static final BitSet FOLLOW_condition_in_while_655 = new BitSet(new long[]{0x0000000117FEC1D0L});
+    public static final BitSet FOLLOW_WHILE_in_while_652 = new BitSet(new long[]{0x0000000000C68000L});
+    public static final BitSet FOLLOW_condition_in_while_655 = new BitSet(new long[]{0x000000012FDF8350L});
     public static final BitSet FOLLOW_statements_in_while_657 = new BitSet(new long[]{0x0000000000000002L});
 
 }

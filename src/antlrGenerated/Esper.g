@@ -60,7 +60,7 @@ vartype : VARINT
         ;
 forloop : for_ ENDFOR ;
 for_ : FOR^ forgap statements ; 
-forgap : (TO | FROM)^ factor factor;
+forgap : (INCREASING | DECREASING)^ factor factor;
 whileloop : while_ ENDWHILE;
 while_ : WHILE^ condition statements  ; 
  
@@ -69,7 +69,7 @@ while_ : WHILE^ condition statements  ;
  *------------------------------------------------------------------*/
 
 WHITESPACE : ( '\t' | ' ' | '\r' | '\n'| '\u000C' )+ { $channel = HIDDEN; } ; //Whitespace, hidden from parser
-DIGITS : '0'..'9'+ ;
+DIGITS : '-'* '0'..'9'+;
 PLUS: '+' ;
 MINUS: '-' ;
 MULT: '*' ;
@@ -90,8 +90,8 @@ ELSE : 'else' ;
 ENDIF : 'endif' ;
 ENDFOR : 'endfor' ;
 FOR : 'for' ;
-TO : 'to' ;
-FROM : 'from' ;
+DECREASING : 'dec' ;
+INCREASING : 'inc' ;
 WHILE : 'while';
 ENDWHILE : 'endwhile' ;
 IDENTIFIER : 'a'..'z' ('a'..'z' | DIGITS)*;

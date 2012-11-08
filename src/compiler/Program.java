@@ -31,10 +31,12 @@ public class Program {
 
 		// test();
 
-		//String code =
-		 //"declare a int if eq a b if eq a b print * b / 7 - a 1 set a - b 1 endif set b + 3 2 elseif lt a b set a 2 else set a 3 endif set a + 8 7 declare s str print \"hullo\"";
-		//String code = "for from a 3\n print a\n print b\n endfor";
-		String code = "while lte 1 1 print a endwhile";
+		//String code = "declare a int if eq a b if eq a b print * b / 7 - a 1 set a - b 1 endif set b + 3 2 elseif lt a b set a 2 else set a 3 endif set a + 8 7 declare s str print \"hullo\"";
+		
+		String code = "declare a int set a 4";
+		
+		//String code = "for dec a -999\n print a\n print b\n endfor";
+		//String code = "while lte + 1 - 3 * 5 / 2 3 -1 print a endwhile print b";
 		EsperCompiler compiler = new EsperCompiler(code, true);
 		System.out.println("Compiled!");
 		System.out.println("Lexer status: "
