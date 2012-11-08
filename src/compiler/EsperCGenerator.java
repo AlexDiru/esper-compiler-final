@@ -126,6 +126,46 @@ public class EsperCGenerator {
 			
 			break;
 			
+		//If statement
+		case "IF":
+			
+			code += " if" + generate(parseRoot.children.get(0)) + " {";
+			
+			//Generate the statements
+			for (int i = 1; i < parseRoot.children.size(); i++)
+				code += generate(parseRoot.children.get(i));
+			
+			code += " }";
+			
+			break;
+			
+		//Else if statement
+		case "ELSEIF":
+			
+			code += " else if" + generate(parseRoot.children.get(0)) + " {";
+			
+			//Generate the statements
+			for (int i = 1; i < parseRoot.children.size(); i++)
+				code += generate(parseRoot.children.get(i));
+			
+			code += " }";
+			
+			break;
+			
+		//Else statement
+		case "ELSE":
+			
+			code += " else {";
+			
+			//Generate the statements
+			for (int i = 0; i < parseRoot.children.size(); i++)
+				code += generate(parseRoot.children.get(i));
+			
+			code += " }";
+			
+			break;
+			
+			
 		//Print function
 		case "PRINT":
 			

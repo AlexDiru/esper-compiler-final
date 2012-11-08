@@ -33,7 +33,7 @@ public class Program {
 
 		//String code = "declare a int if eq a b if eq a b print * b / 7 - a 1 set a - b 1 endif set b + 3 2 elseif lt a b set a 2 else set a 3 endif set a + 8 7 declare s str print \"hullo\"";
 		
-		String code = "declare a int set a 4";
+		String code = "declare a int set a 4 declare b int set b 4 if eq b b if eq a b print a else set b 4 endif print a elseif lt a b print b endif";
 		
 		//String code = "for dec a -999\n print a\n print b\n endfor";
 		//String code = "while lte + 1 - 3 * 5 / 2 3 -1 print a endwhile print b";
