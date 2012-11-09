@@ -65,7 +65,9 @@ public class EsperCGenerator {
 
 		variableList = tvariableList;
 
-		String code = "#include <stdio.h>\nint main() \n{\n";
+		String code = "#include <stdio.h>\n\n";
+		code += getTransrealLibrary();
+		code += "int main() \n{\n";
 
 		for (int i = 0; i < parseRoot.children.size(); i++) {
 			code += generateNode(parseRoot.children.get(i), 1);
@@ -286,144 +288,143 @@ public class EsperCGenerator {
 
 		sb.append("#define INF 1\n");
 		sb.append("#define NINF 2\n");
-		sb.append("#define NULLITY 3\n");
+		sb.append("#define NULLITY 3\n\n");
 
 		sb.append("struct _transreal\n");
 		sb.append("{\n");
-		sb.append("int special_case; //0 = nothing, 1 = -inf, 2 = inf, 3 = nullity\n");
-		sb.append("float value;\n");
-		sb.append("};\n");
+		sb.append("\tint special_case; //0 = nothing, 1 = -inf, 2 = inf, 3 = nullity\n");
+		sb.append("\tfloat value;\n");
+		sb.append("};\n\n");
 
-		sb.append("typedef struct _transreal transreal;\n");
+		sb.append("typedef struct _transreal transreal;\n\n");
 
 		sb.append("void transreal_print(transreal t)\n");
 		sb.append("{\n");
-		sb.append("if (t.special_case == 0)\n");
-		sb.append("printf(\"%f\\n\", t.value);\n");
-		sb.append("else if (t.special_case == NINF)\n");
-		sb.append("printf(\"-INFINITY\\n\");\n");
-		sb.append("else if (t.special_case == INF)\n");
-		sb.append("printf(\"INFINITY\\n\");\n");
-		sb.append("else if (t.special_case == NULLITY)\n");
-		sb.append("printf(\"NULLITY\\n\");\n");
-		sb.append("}\n");
+		sb.append("\tif (t.special_case == 0)\n");
+		sb.append("\t\tprintf(\"%f\\n\", t.value);\n");
+		sb.append("\telse if (t.special_case == NINF)\n");
+		sb.append("\t\tprintf(\"-INFINITY\\n\");\n");
+		sb.append("\telse if (t.special_case == INF)\n");
+		sb.append("\t\tprintf(\"INFINITY\\n\");\n");
+		sb.append("\telse if (t.special_case == NULLITY)\n");
+		sb.append("\t\tprintf(\"NULLITY\\n\");\n");
+		sb.append("}\n\n");
 
 		sb.append("transreal get_negative_infinity()\n");
 		sb.append("{\n");
-		sb.append("transreal t;\n");
-		sb.append("t.special_case = NINF;\n");
-		sb.append("return t;\n");
-		sb.append("}\n");
+		sb.append("\ttransreal t;\n");
+		sb.append("\tt.special_case = NINF;\n");
+		sb.append("\treturn t;\n");
+		sb.append("}\n\n");
 
 		sb.append("transreal get_infinity()\n");
 		sb.append("{\n");
-		sb.append("transreal t;\n");
-		sb.append("t.special_case = INF;\n");
-		sb.append("return t;\n");
-		sb.append("}\n");
+		sb.append("\ttransreal t;\n");
+		sb.append("\tt.special_case = INF;\n");
+		sb.append("\treturn t;\n");
+		sb.append("}\n\n");
 
 		sb.append("transreal get_nullity()\n");
 		sb.append("{\n");
-		sb.append("transreal t;\n");
-		sb.append("t.special_case = NULLITY;\n");
-		sb.append("return t;\n");
-		sb.append("}\n");
+		sb.append("\ttransreal t;\n");
+		sb.append("\tt.special_case = NULLITY;\n");
+		sb.append("\treturn t;\n");
+		sb.append("}\n\n");
 
 		sb.append("transreal get_value(float v)\n");
 		sb.append("{\n");
-		sb.append("transreal t;\n");
-		sb.append("t.special_case = 0;\n");
-		sb.append("t.value = v;\n");
-		sb.append("return t;\n");
-		sb.append("}\n");
+		sb.append("\ttransreal t;\n");
+		sb.append("\tt.special_case = 0;\n");
+		sb.append("\tt.value = v;\n");
+		sb.append("\treturn t;\n");
+		sb.append("}\n\n");
 
 		sb.append("transreal negative(transreal t)\n");
 		sb.append("{\n");
-		sb.append("if (t.special_case == NULLITY)\n");
+		sb.append("\tif (t.special_case == NULLITY)\n");
+		sb.append("\t\treturn get_nullity();\n");
 
-		sb.append("return get_nullity();\n");
+		sb.append("\tif (t.special_case == INF)\n");
+		sb.append("\t\treturn get_negative_infinity();\n");
 
-		sb.append("if (t.special_case == INF)\n");
-		sb.append("return get_negative_infinity();\n");
+		sb.append("\tif (t.special_case == NINF)\n");
+		sb.append("\t\treturn get_infinity();\n");
 
-		sb.append("if (t.special_case == NINF)\n");
-		sb.append("return get_infinity();\n");
-
-		sb.append("return get_value(-t.value);\n");
-		sb.append("}\n");
+		sb.append("\treturn get_value(-t.value);\n");
+		sb.append("}\n\n");
 
 		sb.append("transreal transreal_add(transreal a, transreal b)\n");
 		sb.append("{\n");
-		sb.append("//Nullity\n");
-		sb.append("if (a.special_case == NULLITY || b.special_case == NULLITY)\n");
-		sb.append("return get_nullity();\n");
+		sb.append("\t//Nullity\n");
+		sb.append("\tif (a.special_case == NULLITY || b.special_case == NULLITY)\n");
+		sb.append("\t\treturn get_nullity();\n");
 
-		sb.append("//+INF + -INF\n");
-		sb.append("if ((a.special_case == INF && b.special_case) == NINF ||\n");
-		sb.append("(a.special_case == NINF && b.special_case == INF))\n");
-		sb.append("return get_nullity();\n");
+		sb.append("\t//+INF + -INF\n");
+		sb.append("\tif ((a.special_case == INF && b.special_case) == NINF ||\n");
+		sb.append("\t    (a.special_case == NINF && b.special_case == INF))\n");
+		sb.append("\t\treturn get_nullity();\n");
 
-		sb.append("//INF\n");
-		sb.append("if (a.special_case == INF || b.special_case == INF)\n");
-		sb.append("return get_infinity();\n");
+		sb.append("\t//INF\n");
+		sb.append("\tif (a.special_case == INF || b.special_case == INF)\n");
+		sb.append("\t\treturn get_infinity();\n");
 
-		sb.append("//NINF\n");
-		sb.append("if (a.special_case == NINF || b.special_case == NINF)\n");
-		sb.append("return get_negative_infinity();\n");
+		sb.append("\t//NINF\n");
+		sb.append("\tif (a.special_case == NINF || b.special_case == NINF)\n");
+		sb.append("\t\treturn get_negative_infinity();\n");
 
-		sb.append("//Regular\n");
-		sb.append("return get_value(a.value + b.value);\n");
-		sb.append("}\n");
+		sb.append("\t//Regular\n");
+		sb.append("\treturn get_value(a.value + b.value);\n");
+		sb.append("}\n\n");
 
 		sb.append("transreal transreal_sub(transreal a, transreal b)\n");
 		sb.append("{\n");
-		sb.append("return transreal_add(a, negative(b));\n");
-		sb.append("}\n");
+		sb.append("\treturn transreal_add(a, negative(b));\n");
+		sb.append("}\n\n");
 
 		sb.append("transreal transreal_mult(transreal a, transreal b)\n");
 		sb.append("{\n");
-		sb.append("//Regular numbers\n");
-		sb.append("if (a.special_case == 0 && b.special_case == 0)\n");
-		sb.append("return get_value(a.value*b.value);\n");
+		sb.append("\t//Regular numbers\n");
+		sb.append("\tif (a.special_case == 0 && b.special_case == 0)\n");
+		sb.append("\t\treturn get_value(a.value*b.value);\n");
 
-		sb.append("//Zero\n");
-		sb.append("if ((a.special_case == 0 && a.value == 0) ||\n");
-		sb.append("(b.special_case == 0 && b.value == 0) ||\n");
-		sb.append("a.special_case == NULLITY ||\n");
-		sb.append("b.special_case == NULLITY)\n");
-		sb.append("return get_nullity();\n");
+		sb.append("\t//Zero\n");
+		sb.append("\tif ((a.special_case == 0 && a.value == 0) ||\n");
+		sb.append("\t    (b.special_case == 0 && b.value == 0) ||\n");
+		sb.append("\t    a.special_case == NULLITY ||\n");
+		sb.append("\t    b.special_case == NULLITY)\n");
+		sb.append("\t\treturn get_nullity();\n");
 
-		sb.append("//PINF * NINF\n");
-		sb.append("if ((a.special_case == NINF && b.special_case == INF) ||\n");
-		sb.append("(a.special_case == INF && b.special_case == NINF))\n");
-		sb.append("return get_negative_infinity();\n");
+		sb.append("\t//PINF * NINF\n");
+		sb.append("\tif ((a.special_case == NINF && b.special_case == INF) ||\n");
+		sb.append("\t    (a.special_case == INF && b.special_case == NINF))\n");
+		sb.append("\t\treturn get_negative_infinity();\n");
 
-		sb.append("//INF * x\n");
-		sb.append("if (a.special_case == INF || b.special_case == INF)\n");
-		sb.append("return get_infinity();\n");
+		sb.append("\t//INF * x\n");
+		sb.append("\tif (a.special_case == INF || b.special_case == INF)\n");
+		sb.append("\t\treturn get_infinity();\n");
 
-		sb.append("//NINF * x\n");
-		sb.append("return get_negative_infinity();\n");
-		sb.append("}\n");
+		sb.append("\t//NINF * x\n");
+		sb.append("\t\treturn get_negative_infinity();\n");
+		sb.append("}\n\n");
 
 		sb.append("transreal invert(transreal a)\n");
 		sb.append("{\n");
-		sb.append("if (a.special_case == 0)\n");
-		sb.append("if (a.value == 0)\n");
-		sb.append("return get_infinity();\n");
-		sb.append("else\n");
-		sb.append("return get_value(1/a.value);\n");
+		sb.append("\tif (a.special_case == 0)\n");
+		sb.append("\t\tif (a.value == 0)\n");
+		sb.append("\t\t\treturn get_infinity();\n");
+		sb.append("\t\telse\n");
+		sb.append("\t\t\treturn get_value(1/a.value);\n");
 
-		sb.append("if (a.special_case == INF || a.special_case == NINF)\n");
-		sb.append("return get_value(0);\n");
+		sb.append("\tif (a.special_case == INF || a.special_case == NINF)\n");
+		sb.append("\t\treturn get_value(0);\n");
 
-		sb.append("return get_nullity();\n");
-		sb.append("}\n");
+		sb.append("\treturn get_nullity();\n");
+		sb.append("}\n\n");
 
 		sb.append("transreal transreal_div(transreal a, transreal b)\n");
 		sb.append("{\n");
-		sb.append("return transreal_mult(a, invert(b));\n");
-		sb.append("}\n");
+		sb.append("\treturn transreal_mult(a, invert(b));\n");
+		sb.append("}\n\n");
 		
 		return sb.toString();
 	}
