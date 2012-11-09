@@ -60,6 +60,7 @@ public class EsperCompiler {
 		postParser.getVariableList();
 		variableList = postParser.variableList;
 	}
+	
 
 	// http://www.antlr.org/wiki/pages/viewpage.action?pageId=789
 	public EsperCompiler(String sourceCode, boolean print) {
@@ -134,5 +135,6 @@ public class EsperCompiler {
 			}
 		}
 	}
+
 
 }
