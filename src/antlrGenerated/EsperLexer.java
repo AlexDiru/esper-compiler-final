@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g 2012-11-08 21:16:17
+// $ANTLR 3.4 C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g 2012-11-09 16:04:39
 
   package antlrGenerated;
 
@@ -29,18 +29,22 @@ public class EsperLexer extends Lexer {
     public static final int IDENTIFIER=19;
     public static final int IF=20;
     public static final int INCREASING=21;
-    public static final int LESSTHAN=22;
-    public static final int LESSTHANEQUAL=23;
-    public static final int MINUS=24;
-    public static final int MULT=25;
-    public static final int PLUS=26;
-    public static final int PRINT=27;
-    public static final int SEMICOLON=28;
-    public static final int STRING=29;
-    public static final int VARINT=30;
-    public static final int VARSTRING=31;
-    public static final int WHILE=32;
-    public static final int WHITESPACE=33;
+    public static final int INFINITY=22;
+    public static final int LESSTHAN=23;
+    public static final int LESSTHANEQUAL=24;
+    public static final int MINUS=25;
+    public static final int MULT=26;
+    public static final int NEGATIVEINFINITY=27;
+    public static final int NULLITY=28;
+    public static final int PLUS=29;
+    public static final int PRINT=30;
+    public static final int SEMICOLON=31;
+    public static final int STRING=32;
+    public static final int VARINT=33;
+    public static final int VARSTRING=34;
+    public static final int VARTRANSREAL=35;
+    public static final int WHILE=36;
+    public static final int WHITESPACE=37;
 
     // delegates
     // delegators
@@ -62,10 +66,10 @@ public class EsperLexer extends Lexer {
         try {
             int _type = WHITESPACE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:71:12: ( ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+ )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:71:14: ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:76:12: ( ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+ )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:76:14: ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+
             {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:71:14: ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:76:14: ( '\\t' | ' ' | '\\r' | '\\n' | '\\u000C' )+
             int cnt1=0;
             loop1:
             do {
@@ -122,10 +126,10 @@ public class EsperLexer extends Lexer {
         try {
             int _type = DIGITS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:72:8: ( ( '-' )* ( '0' .. '9' )+ )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:72:10: ( '-' )* ( '0' .. '9' )+
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:77:8: ( ( '-' )* ( '0' .. '9' )+ )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:77:10: ( '-' )* ( '0' .. '9' )+
             {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:72:10: ( '-' )*
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:77:10: ( '-' )*
             loop2:
             do {
                 int alt2=2;
@@ -138,7 +142,7 @@ public class EsperLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:72:10: '-'
+            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:77:10: '-'
             	    {
             	    match('-'); 
 
@@ -151,7 +155,7 @@ public class EsperLexer extends Lexer {
             } while (true);
 
 
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:72:15: ( '0' .. '9' )+
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:77:15: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -206,8 +210,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = PLUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:73:5: ( '+' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:73:7: '+'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:78:5: ( '+' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:78:7: '+'
             {
             match('+'); 
 
@@ -227,8 +231,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = MINUS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:74:6: ( '-' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:74:8: '-'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:79:6: ( '-' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:79:8: '-'
             {
             match('-'); 
 
@@ -248,8 +252,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = MULT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:75:5: ( '*' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:75:7: '*'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:80:5: ( '*' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:80:7: '*'
             {
             match('*'); 
 
@@ -269,8 +273,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = DIV;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:76:4: ( '/' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:76:6: '/'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:81:4: ( '/' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:81:6: '/'
             {
             match('/'); 
 
@@ -285,13 +289,105 @@ public class EsperLexer extends Lexer {
     }
     // $ANTLR end "DIV"
 
+    // $ANTLR start "NULLITY"
+    public final void mNULLITY() throws RecognitionException {
+        try {
+            int _type = NULLITY;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:82:9: ( 'nullity' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:82:11: 'nullity'
+            {
+            match("nullity"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "NULLITY"
+
+    // $ANTLR start "INFINITY"
+    public final void mINFINITY() throws RecognitionException {
+        try {
+            int _type = INFINITY;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:83:10: ( 'inf' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:83:12: 'inf'
+            {
+            match("inf"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "INFINITY"
+
+    // $ANTLR start "NEGATIVEINFINITY"
+    public final void mNEGATIVEINFINITY() throws RecognitionException {
+        try {
+            int _type = NEGATIVEINFINITY;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:84:18: ( '-inf' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:84:20: '-inf'
+            {
+            match("-inf"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "NEGATIVEINFINITY"
+
+    // $ANTLR start "VARTRANSREAL"
+    public final void mVARTRANSREAL() throws RecognitionException {
+        try {
+            int _type = VARTRANSREAL;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:85:13: ( 'transreal' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:85:15: 'transreal'
+            {
+            match("transreal"); 
+
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        	// do for sure before leaving
+        }
+    }
+    // $ANTLR end "VARTRANSREAL"
+
     // $ANTLR start "VARINT"
     public final void mVARINT() throws RecognitionException {
         try {
             int _type = VARINT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:77:7: ( 'int' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:77:9: 'int'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:86:7: ( 'int' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:86:9: 'int'
             {
             match("int"); 
 
@@ -313,8 +409,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = VARSTRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:78:11: ( 'string' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:78:13: 'string'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:87:11: ( 'string' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:87:13: 'string'
             {
             match("string"); 
 
@@ -336,8 +432,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = LESSTHAN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:79:10: ( 'lt' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:79:12: 'lt'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:88:10: ( 'lt' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:88:12: 'lt'
             {
             match("lt"); 
 
@@ -359,8 +455,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = GREATERTHAN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:80:13: ( 'gt' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:80:15: 'gt'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:89:13: ( 'gt' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:89:15: 'gt'
             {
             match("gt"); 
 
@@ -382,8 +478,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = LESSTHANEQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:81:15: ( 'lte' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:81:17: 'lte'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:90:15: ( 'lte' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:90:17: 'lte'
             {
             match("lte"); 
 
@@ -405,8 +501,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = GREATERTHANEQUAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:82:18: ( 'gte' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:82:20: 'gte'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:91:18: ( 'gte' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:91:20: 'gte'
             {
             match("gte"); 
 
@@ -428,7 +524,7 @@ public class EsperLexer extends Lexer {
         try {
             int _type = EQUALTO;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:83:9: ( 'eq' | 'equal' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:92:9: ( 'eq' | 'equal' )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -462,7 +558,7 @@ public class EsperLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:83:11: 'eq'
+                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:92:11: 'eq'
                     {
                     match("eq"); 
 
@@ -471,7 +567,7 @@ public class EsperLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:83:18: 'equal'
+                    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:92:18: 'equal'
                     {
                     match("equal"); 
 
@@ -495,8 +591,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = DECLARE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:84:9: ( 'declare' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:84:11: 'declare'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:93:9: ( 'declare' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:93:11: 'declare'
             {
             match("declare"); 
 
@@ -518,8 +614,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = ASSIGN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:85:8: ( 'set' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:85:10: 'set'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:94:8: ( 'set' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:94:10: 'set'
             {
             match("set"); 
 
@@ -541,8 +637,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = PRINT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:86:7: ( 'print' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:86:9: 'print'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:95:7: ( 'print' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:95:9: 'print'
             {
             match("print"); 
 
@@ -564,8 +660,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = IF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:87:4: ( 'if' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:87:6: 'if'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:96:4: ( 'if' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:96:6: 'if'
             {
             match("if"); 
 
@@ -587,8 +683,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = ELSEIF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:88:8: ( 'elseif' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:88:10: 'elseif'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:97:8: ( 'elseif' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:97:10: 'elseif'
             {
             match("elseif"); 
 
@@ -610,8 +706,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = ELSE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:89:6: ( 'else' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:89:8: 'else'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:98:6: ( 'else' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:98:8: 'else'
             {
             match("else"); 
 
@@ -633,8 +729,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = ENDIF;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:90:7: ( 'endif' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:90:9: 'endif'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:99:7: ( 'endif' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:99:9: 'endif'
             {
             match("endif"); 
 
@@ -656,8 +752,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = ENDFOR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:91:8: ( 'endfor' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:91:10: 'endfor'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:100:8: ( 'endfor' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:100:10: 'endfor'
             {
             match("endfor"); 
 
@@ -679,8 +775,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = FOR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:92:5: ( 'for' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:92:7: 'for'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:101:5: ( 'for' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:101:7: 'for'
             {
             match("for"); 
 
@@ -702,8 +798,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = DECREASING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:93:12: ( 'dec' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:93:14: 'dec'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:102:12: ( 'dec' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:102:14: 'dec'
             {
             match("dec"); 
 
@@ -725,8 +821,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = INCREASING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:94:12: ( 'inc' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:94:14: 'inc'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:103:12: ( 'inc' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:103:14: 'inc'
             {
             match("inc"); 
 
@@ -748,8 +844,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = WHILE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:95:7: ( 'while' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:95:9: 'while'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:104:7: ( 'while' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:104:9: 'while'
             {
             match("while"); 
 
@@ -771,8 +867,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = ENDWHILE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:96:10: ( 'endwhile' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:96:12: 'endwhile'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:105:10: ( 'endwhile' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:105:12: 'endwhile'
             {
             match("endwhile"); 
 
@@ -794,12 +890,12 @@ public class EsperLexer extends Lexer {
         try {
             int _type = IDENTIFIER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:97:12: ( 'a' .. 'z' ( 'a' .. 'z' | DIGITS )* )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:97:14: 'a' .. 'z' ( 'a' .. 'z' | DIGITS )*
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:106:12: ( 'a' .. 'z' ( 'a' .. 'z' | DIGITS )* )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:106:14: 'a' .. 'z' ( 'a' .. 'z' | DIGITS )*
             {
             matchRange('a','z'); 
 
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:97:23: ( 'a' .. 'z' | DIGITS )*
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:106:23: ( 'a' .. 'z' | DIGITS )*
             loop5:
             do {
                 int alt5=3;
@@ -815,14 +911,14 @@ public class EsperLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:97:24: 'a' .. 'z'
+            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:106:24: 'a' .. 'z'
             	    {
             	    matchRange('a','z'); 
 
             	    }
             	    break;
             	case 2 :
-            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:97:35: DIGITS
+            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:106:35: DIGITS
             	    {
             	    mDIGITS(); 
 
@@ -852,12 +948,12 @@ public class EsperLexer extends Lexer {
         try {
             int _type = STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:98:8: ( '\"' ( CHARACTER | DIGITS )* '\"' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:98:10: '\"' ( CHARACTER | DIGITS )* '\"'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:107:8: ( '\"' ( CHARACTER | DIGITS )* '\"' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:107:10: '\"' ( CHARACTER | DIGITS )* '\"'
             {
             match('\"'); 
 
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:98:14: ( CHARACTER | DIGITS )*
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:107:14: ( CHARACTER | DIGITS )*
             loop6:
             do {
                 int alt6=3;
@@ -873,7 +969,7 @@ public class EsperLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:98:15: CHARACTER
+            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:107:15: CHARACTER
             	    {
             	    mCHARACTER(); 
 
@@ -881,7 +977,7 @@ public class EsperLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:98:25: DIGITS
+            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:107:25: DIGITS
             	    {
             	    mDIGITS(); 
 
@@ -913,7 +1009,7 @@ public class EsperLexer extends Lexer {
         try {
             int _type = CHARACTER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:99:11: ( 'a' .. 'z' | 'A' .. 'Z' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:108:11: ( 'a' .. 'z' | 'A' .. 'Z' )
             // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:
             {
             if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
@@ -942,8 +1038,8 @@ public class EsperLexer extends Lexer {
         try {
             int _type = SEMICOLON;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:102:11: ( ';' )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:102:13: ';'
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:111:11: ( ';' )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:111:13: ';'
             {
             match(';'); 
 
@@ -959,8 +1055,8 @@ public class EsperLexer extends Lexer {
     // $ANTLR end "SEMICOLON"
 
     public void mTokens() throws RecognitionException {
-        // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:8: ( WHITESPACE | DIGITS | PLUS | MINUS | MULT | DIV | VARINT | VARSTRING | LESSTHAN | GREATERTHAN | LESSTHANEQUAL | GREATERTHANEQUAL | EQUALTO | DECLARE | ASSIGN | PRINT | IF | ELSEIF | ELSE | ENDIF | ENDFOR | FOR | DECREASING | INCREASING | WHILE | ENDWHILE | IDENTIFIER | STRING | CHARACTER | SEMICOLON )
-        int alt7=30;
+        // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:8: ( WHITESPACE | DIGITS | PLUS | MINUS | MULT | DIV | NULLITY | INFINITY | NEGATIVEINFINITY | VARTRANSREAL | VARINT | VARSTRING | LESSTHAN | GREATERTHAN | LESSTHANEQUAL | GREATERTHANEQUAL | EQUALTO | DECLARE | ASSIGN | PRINT | IF | ELSEIF | ELSE | ENDIF | ENDFOR | FOR | DECREASING | INCREASING | WHILE | ENDWHILE | IDENTIFIER | STRING | CHARACTER | SEMICOLON )
+        int alt7=34;
         alt7 = dfa7.predict(input);
         switch (alt7) {
             case 1 :
@@ -1012,191 +1108,223 @@ public class EsperLexer extends Lexer {
                 }
                 break;
             case 7 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:48: VARINT
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:48: NULLITY
+                {
+                mNULLITY(); 
+
+
+                }
+                break;
+            case 8 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:56: INFINITY
+                {
+                mINFINITY(); 
+
+
+                }
+                break;
+            case 9 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:65: NEGATIVEINFINITY
+                {
+                mNEGATIVEINFINITY(); 
+
+
+                }
+                break;
+            case 10 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:82: VARTRANSREAL
+                {
+                mVARTRANSREAL(); 
+
+
+                }
+                break;
+            case 11 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:95: VARINT
                 {
                 mVARINT(); 
 
 
                 }
                 break;
-            case 8 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:55: VARSTRING
+            case 12 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:102: VARSTRING
                 {
                 mVARSTRING(); 
 
 
                 }
                 break;
-            case 9 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:65: LESSTHAN
+            case 13 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:112: LESSTHAN
                 {
                 mLESSTHAN(); 
 
 
                 }
                 break;
-            case 10 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:74: GREATERTHAN
+            case 14 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:121: GREATERTHAN
                 {
                 mGREATERTHAN(); 
 
 
                 }
                 break;
-            case 11 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:86: LESSTHANEQUAL
+            case 15 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:133: LESSTHANEQUAL
                 {
                 mLESSTHANEQUAL(); 
 
 
                 }
                 break;
-            case 12 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:100: GREATERTHANEQUAL
+            case 16 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:147: GREATERTHANEQUAL
                 {
                 mGREATERTHANEQUAL(); 
 
 
                 }
                 break;
-            case 13 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:117: EQUALTO
+            case 17 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:164: EQUALTO
                 {
                 mEQUALTO(); 
 
 
                 }
                 break;
-            case 14 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:125: DECLARE
+            case 18 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:172: DECLARE
                 {
                 mDECLARE(); 
 
 
                 }
                 break;
-            case 15 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:133: ASSIGN
+            case 19 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:180: ASSIGN
                 {
                 mASSIGN(); 
 
 
                 }
                 break;
-            case 16 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:140: PRINT
+            case 20 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:187: PRINT
                 {
                 mPRINT(); 
 
 
                 }
                 break;
-            case 17 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:146: IF
+            case 21 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:193: IF
                 {
                 mIF(); 
 
 
                 }
                 break;
-            case 18 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:149: ELSEIF
+            case 22 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:196: ELSEIF
                 {
                 mELSEIF(); 
 
 
                 }
                 break;
-            case 19 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:156: ELSE
+            case 23 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:203: ELSE
                 {
                 mELSE(); 
 
 
                 }
                 break;
-            case 20 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:161: ENDIF
+            case 24 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:208: ENDIF
                 {
                 mENDIF(); 
 
 
                 }
                 break;
-            case 21 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:167: ENDFOR
+            case 25 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:214: ENDFOR
                 {
                 mENDFOR(); 
 
 
                 }
                 break;
-            case 22 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:174: FOR
+            case 26 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:221: FOR
                 {
                 mFOR(); 
 
 
                 }
                 break;
-            case 23 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:178: DECREASING
+            case 27 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:225: DECREASING
                 {
                 mDECREASING(); 
 
 
                 }
                 break;
-            case 24 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:189: INCREASING
+            case 28 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:236: INCREASING
                 {
                 mINCREASING(); 
 
 
                 }
                 break;
-            case 25 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:200: WHILE
+            case 29 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:247: WHILE
                 {
                 mWHILE(); 
 
 
                 }
                 break;
-            case 26 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:206: ENDWHILE
+            case 30 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:253: ENDWHILE
                 {
                 mENDWHILE(); 
 
 
                 }
                 break;
-            case 27 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:215: IDENTIFIER
+            case 31 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:262: IDENTIFIER
                 {
                 mIDENTIFIER(); 
 
 
                 }
                 break;
-            case 28 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:226: STRING
+            case 32 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:273: STRING
                 {
                 mSTRING(); 
 
 
                 }
                 break;
-            case 29 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:233: CHARACTER
+            case 33 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:280: CHARACTER
                 {
                 mCHARACTER(); 
 
 
                 }
                 break;
-            case 30 :
-                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:243: SEMICOLON
+            case 34 :
+                // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:1:290: SEMICOLON
                 {
                 mSEMICOLON(); 
 
@@ -1211,134 +1339,161 @@ public class EsperLexer extends Lexer {
 
     protected DFA7 dfa7 = new DFA7(this);
     static final String DFA7_eotS =
-        "\2\uffff\1\24\4\uffff\11\27\5\uffff\1\27\1\45\1\uffff\2\27\1\51"+
-        "\1\53\1\55\6\27\1\64\1\65\1\uffff\1\27\1\67\1\70\1\uffff\1\71\1"+
-        "\uffff\1\27\1\uffff\2\27\1\100\1\27\1\102\1\27\2\uffff\1\27\3\uffff"+
-        "\1\27\1\107\4\27\1\uffff\1\27\1\uffff\2\27\1\55\1\27\1\uffff\1\120"+
-        "\3\27\1\124\1\125\1\126\1\127\1\uffff\1\130\2\27\5\uffff\1\27\1"+
-        "\134\1\135\2\uffff";
+        "\2\uffff\1\27\4\uffff\13\31\6\uffff\1\31\1\uffff\1\31\1\54\3\31"+
+        "\1\61\1\63\1\65\7\31\1\75\1\76\1\77\1\uffff\2\31\1\102\1\103\1\uffff"+
+        "\1\104\1\uffff\1\31\1\uffff\2\31\1\113\1\31\1\115\2\31\3\uffff\2"+
+        "\31\3\uffff\1\31\1\124\4\31\1\uffff\1\31\1\uffff\4\31\1\65\1\31"+
+        "\1\uffff\1\137\3\31\1\143\1\144\2\31\1\147\1\150\1\uffff\1\151\2"+
+        "\31\2\uffff\1\154\1\31\3\uffff\1\31\1\157\1\uffff\1\31\1\161\1\uffff"+
+        "\1\162\2\uffff";
     static final String DFA7_eofS =
-        "\136\uffff";
+        "\163\uffff";
     static final String DFA7_minS =
-        "\1\11\1\uffff\1\55\4\uffff\1\146\1\145\2\164\1\154\1\145\1\162\1"+
-        "\157\1\150\5\uffff\1\143\1\55\1\uffff\1\162\1\164\3\55\1\163\1\144"+
-        "\1\143\1\151\1\162\1\151\2\55\1\uffff\1\151\2\55\1\uffff\1\55\1"+
-        "\uffff\1\141\1\uffff\1\145\1\146\1\55\1\156\1\55\1\154\2\uffff\1"+
-        "\156\3\uffff\1\154\1\55\1\146\1\157\1\150\1\141\1\uffff\1\164\1"+
-        "\uffff\1\145\1\147\1\55\1\146\1\uffff\1\55\1\162\1\151\1\162\4\55"+
-        "\1\uffff\1\55\1\154\1\145\5\uffff\1\145\2\55\2\uffff";
+        "\1\11\1\uffff\1\55\4\uffff\1\165\1\146\1\162\1\145\2\164\1\154\1"+
+        "\145\1\162\1\157\1\150\6\uffff\1\154\1\uffff\1\143\1\55\1\141\1"+
+        "\162\1\164\3\55\1\163\1\144\1\143\1\151\1\162\1\151\1\154\3\55\1"+
+        "\uffff\1\156\1\151\2\55\1\uffff\1\55\1\uffff\1\141\1\uffff\1\145"+
+        "\1\146\1\55\1\156\1\55\1\154\1\151\3\uffff\1\163\1\156\3\uffff\1"+
+        "\154\1\55\1\146\1\157\1\150\1\141\1\uffff\1\164\1\uffff\1\145\1"+
+        "\164\1\162\1\147\1\55\1\146\1\uffff\1\55\1\162\1\151\1\162\2\55"+
+        "\1\171\1\145\2\55\1\uffff\1\55\1\154\1\145\2\uffff\1\55\1\141\3"+
+        "\uffff\1\145\1\55\1\uffff\1\154\1\55\1\uffff\1\55\2\uffff";
     static final String DFA7_maxS =
-        "\1\172\1\uffff\1\71\4\uffff\1\156\3\164\1\161\1\145\1\162\1\157"+
-        "\1\150\5\uffff\1\164\1\172\1\uffff\1\162\1\164\3\172\1\163\1\144"+
-        "\1\143\1\151\1\162\1\151\2\172\1\uffff\1\151\2\172\1\uffff\1\172"+
-        "\1\uffff\1\141\1\uffff\1\145\1\167\1\172\1\156\1\172\1\154\2\uffff"+
-        "\1\156\3\uffff\1\154\1\172\1\146\1\157\1\150\1\141\1\uffff\1\164"+
-        "\1\uffff\1\145\1\147\1\172\1\146\1\uffff\1\172\1\162\1\151\1\162"+
-        "\4\172\1\uffff\1\172\1\154\1\145\5\uffff\1\145\2\172\2\uffff";
+        "\1\172\1\uffff\1\151\4\uffff\1\165\1\156\1\162\3\164\1\161\1\145"+
+        "\1\162\1\157\1\150\6\uffff\1\154\1\uffff\1\164\1\172\1\141\1\162"+
+        "\1\164\3\172\1\163\1\144\1\143\1\151\1\162\1\151\1\154\3\172\1\uffff"+
+        "\1\156\1\151\2\172\1\uffff\1\172\1\uffff\1\141\1\uffff\1\145\1\167"+
+        "\1\172\1\156\1\172\1\154\1\151\3\uffff\1\163\1\156\3\uffff\1\154"+
+        "\1\172\1\146\1\157\1\150\1\141\1\uffff\1\164\1\uffff\1\145\1\164"+
+        "\1\162\1\147\1\172\1\146\1\uffff\1\172\1\162\1\151\1\162\2\172\1"+
+        "\171\1\145\2\172\1\uffff\1\172\1\154\1\145\2\uffff\1\172\1\141\3"+
+        "\uffff\1\145\1\172\1\uffff\1\154\1\172\1\uffff\1\172\2\uffff";
     static final String DFA7_acceptS =
-        "\1\uffff\1\1\1\uffff\1\2\1\3\1\5\1\6\11\uffff\1\33\1\34\1\35\1\36"+
-        "\1\4\2\uffff\1\33\15\uffff\1\21\3\uffff\1\11\1\uffff\1\12\1\uffff"+
-        "\1\15\6\uffff\1\7\1\30\1\uffff\1\17\1\13\1\14\6\uffff\1\27\1\uffff"+
-        "\1\26\4\uffff\1\23\10\uffff\1\24\3\uffff\1\20\1\31\1\10\1\22\1\25"+
-        "\3\uffff\1\16\1\32";
+        "\1\uffff\1\1\1\uffff\1\2\1\3\1\5\1\6\13\uffff\1\37\1\40\1\41\1\42"+
+        "\1\11\1\4\1\uffff\1\37\22\uffff\1\25\4\uffff\1\15\1\uffff\1\16\1"+
+        "\uffff\1\21\7\uffff\1\10\1\13\1\34\2\uffff\1\23\1\17\1\20\6\uffff"+
+        "\1\33\1\uffff\1\32\6\uffff\1\27\12\uffff\1\30\3\uffff\1\24\1\35"+
+        "\2\uffff\1\14\1\26\1\31\2\uffff\1\7\2\uffff\1\22\1\uffff\1\36\1"+
+        "\12";
     static final String DFA7_specialS =
-        "\136\uffff}>";
+        "\163\uffff}>";
     static final String[] DFA7_transitionS = {
-            "\2\1\1\uffff\2\1\22\uffff\1\1\1\uffff\1\21\7\uffff\1\5\1\4\1"+
-            "\uffff\1\2\1\uffff\1\6\12\3\1\uffff\1\23\5\uffff\32\22\6\uffff"+
-            "\3\20\1\14\1\13\1\16\1\12\1\20\1\7\2\20\1\11\3\20\1\15\2\20"+
-            "\1\10\3\20\1\17\3\20",
+            "\2\1\1\uffff\2\1\22\uffff\1\1\1\uffff\1\23\7\uffff\1\5\1\4\1"+
+            "\uffff\1\2\1\uffff\1\6\12\3\1\uffff\1\25\5\uffff\32\24\6\uffff"+
+            "\3\22\1\16\1\15\1\20\1\14\1\22\1\10\2\22\1\13\1\22\1\7\1\22"+
+            "\1\17\2\22\1\12\1\11\2\22\1\21\3\22",
             "",
-            "\1\3\2\uffff\12\3",
-            "",
-            "",
+            "\1\3\2\uffff\12\3\57\uffff\1\26",
             "",
             "",
-            "\1\26\7\uffff\1\25",
-            "\1\31\16\uffff\1\30",
-            "\1\32",
-            "\1\33",
-            "\1\35\1\uffff\1\36\2\uffff\1\34",
+            "",
+            "",
+            "\1\30",
+            "\1\33\7\uffff\1\32",
+            "\1\34",
+            "\1\36\16\uffff\1\35",
             "\1\37",
             "\1\40",
-            "\1\41",
-            "\1\42",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\44\20\uffff\1\43",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
-            "",
+            "\1\42\1\uffff\1\43\2\uffff\1\41",
+            "\1\44",
+            "\1\45",
             "\1\46",
             "\1\47",
-            "\1\27\2\uffff\12\27\47\uffff\4\27\1\50\25\27",
-            "\1\27\2\uffff\12\27\47\uffff\4\27\1\52\25\27",
-            "\1\27\2\uffff\12\27\47\uffff\24\27\1\54\5\27",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\50",
+            "",
+            "\1\53\2\uffff\1\51\15\uffff\1\52",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
+            "\1\55",
             "\1\56",
             "\1\57",
-            "\1\60",
-            "\1\61",
-            "\1\62",
-            "\1\63",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
-            "",
+            "\1\31\2\uffff\12\31\47\uffff\4\31\1\60\25\31",
+            "\1\31\2\uffff\12\31\47\uffff\4\31\1\62\25\31",
+            "\1\31\2\uffff\12\31\47\uffff\24\31\1\64\5\31",
             "\1\66",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
-            "",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
-            "",
+            "\1\67",
+            "\1\70",
+            "\1\71",
             "\1\72",
-            "",
             "\1\73",
-            "\1\75\2\uffff\1\74\15\uffff\1\76",
-            "\1\27\2\uffff\12\27\47\uffff\13\27\1\77\16\27",
+            "\1\74",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
+            "",
+            "\1\100",
             "\1\101",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
-            "\1\103",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
             "",
-            "",
-            "\1\104",
-            "",
-            "",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
             "",
             "\1\105",
-            "\1\27\2\uffff\12\27\47\uffff\10\27\1\106\21\27",
-            "\1\110",
-            "\1\111",
-            "\1\112",
-            "\1\113",
             "",
+            "\1\106",
+            "\1\110\2\uffff\1\107\15\uffff\1\111",
+            "\1\31\2\uffff\12\31\47\uffff\13\31\1\112\16\31",
             "\1\114",
-            "",
-            "\1\115",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
             "\1\116",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
             "\1\117",
             "",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
+            "",
+            "",
+            "\1\120",
             "\1\121",
+            "",
+            "",
+            "",
             "\1\122",
-            "\1\123",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
+            "\1\31\2\uffff\12\31\47\uffff\10\31\1\123\21\31",
+            "\1\125",
+            "\1\126",
+            "\1\127",
+            "\1\130",
             "",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
             "\1\131",
+            "",
             "\1\132",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\133",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
-            "\1\27\2\uffff\12\27\47\uffff\32\27",
+            "\1\134",
+            "\1\135",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
+            "\1\136",
+            "",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
+            "\1\140",
+            "\1\141",
+            "\1\142",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
+            "\1\145",
+            "\1\146",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
+            "",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
+            "\1\152",
+            "\1\153",
+            "",
+            "",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
+            "\1\155",
+            "",
+            "",
+            "",
+            "\1\156",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
+            "",
+            "\1\160",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
+            "",
+            "\1\31\2\uffff\12\31\47\uffff\32\31",
             "",
             ""
     };
@@ -1373,7 +1528,7 @@ public class EsperLexer extends Lexer {
             this.transition = DFA7_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( WHITESPACE | DIGITS | PLUS | MINUS | MULT | DIV | VARINT | VARSTRING | LESSTHAN | GREATERTHAN | LESSTHANEQUAL | GREATERTHANEQUAL | EQUALTO | DECLARE | ASSIGN | PRINT | IF | ELSEIF | ELSE | ENDIF | ENDFOR | FOR | DECREASING | INCREASING | WHILE | ENDWHILE | IDENTIFIER | STRING | CHARACTER | SEMICOLON );";
+            return "1:1: Tokens : ( WHITESPACE | DIGITS | PLUS | MINUS | MULT | DIV | NULLITY | INFINITY | NEGATIVEINFINITY | VARTRANSREAL | VARINT | VARSTRING | LESSTHAN | GREATERTHAN | LESSTHANEQUAL | GREATERTHANEQUAL | EQUALTO | DECLARE | ASSIGN | PRINT | IF | ELSEIF | ELSE | ENDIF | ENDFOR | FOR | DECREASING | INCREASING | WHILE | ENDWHILE | IDENTIFIER | STRING | CHARACTER | SEMICOLON );";
         }
     }
  

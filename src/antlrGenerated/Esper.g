@@ -40,7 +40,11 @@ term    : (MULT|DIV)^ expr expr
         // * 3 1
         // * 3 - 2 / 1 9
 factor  : DIGITS
-        | IDENTIFIER ;
+        | IDENTIFIER 
+        | NULLITY
+        | INFINITY
+        | NEGATIVEINFINITY
+        ;
 declaration : DECLARE^ IDENTIFIER vartype ;
 assign : ASSIGN^ IDENTIFIER expr ; //set a + 3 4
 ifthenelse : if_ elseif* else_* ENDIF; // statement ENDIF ; //
@@ -57,6 +61,7 @@ conditionaloperator : LESSTHAN
 print : PRINT^ expr ;
 vartype : VARINT
         | VARSTRING
+        | VARTRANSREAL
         ;
 forloop : for_ ENDFOR ;
 for_ : FOR^ forgap statements ; 
@@ -74,6 +79,10 @@ PLUS: '+' ;
 MINUS: '-' ;
 MULT: '*' ;
 DIV: '/' ;
+NULLITY : 'nullity' ;
+INFINITY : 'inf' ;
+NEGATIVEINFINITY : '-inf' ;
+VARTRANSREAL: 'transreal' ;
 VARINT: 'int' ;
 VARSTRING : 'string' ;
 LESSTHAN : 'lt' ;

@@ -1,4 +1,4 @@
-// $ANTLR 3.4 C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g 2012-11-08 21:16:17
+// $ANTLR 3.4 C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g 2012-11-09 16:04:39
 
   package antlrGenerated;
 
@@ -14,7 +14,7 @@ import org.antlr.runtime.tree.*;
 @SuppressWarnings({"all", "warnings", "unchecked"})
 public class EsperParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ASSIGN", "CHARACTER", "DECLARE", "DECREASING", "DIGITS", "DIV", "ELSE", "ELSEIF", "ENDFOR", "ENDIF", "ENDWHILE", "EQUALTO", "FOR", "GREATERTHAN", "GREATERTHANEQUAL", "IDENTIFIER", "IF", "INCREASING", "LESSTHAN", "LESSTHANEQUAL", "MINUS", "MULT", "PLUS", "PRINT", "SEMICOLON", "STRING", "VARINT", "VARSTRING", "WHILE", "WHITESPACE"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "ASSIGN", "CHARACTER", "DECLARE", "DECREASING", "DIGITS", "DIV", "ELSE", "ELSEIF", "ENDFOR", "ENDIF", "ENDWHILE", "EQUALTO", "FOR", "GREATERTHAN", "GREATERTHANEQUAL", "IDENTIFIER", "IF", "INCREASING", "INFINITY", "LESSTHAN", "LESSTHANEQUAL", "MINUS", "MULT", "NEGATIVEINFINITY", "NULLITY", "PLUS", "PRINT", "SEMICOLON", "STRING", "VARINT", "VARSTRING", "VARTRANSREAL", "WHILE", "WHITESPACE"
     };
 
     public static final int EOF=-1;
@@ -36,18 +36,22 @@ public class EsperParser extends Parser {
     public static final int IDENTIFIER=19;
     public static final int IF=20;
     public static final int INCREASING=21;
-    public static final int LESSTHAN=22;
-    public static final int LESSTHANEQUAL=23;
-    public static final int MINUS=24;
-    public static final int MULT=25;
-    public static final int PLUS=26;
-    public static final int PRINT=27;
-    public static final int SEMICOLON=28;
-    public static final int STRING=29;
-    public static final int VARINT=30;
-    public static final int VARSTRING=31;
-    public static final int WHILE=32;
-    public static final int WHITESPACE=33;
+    public static final int INFINITY=22;
+    public static final int LESSTHAN=23;
+    public static final int LESSTHANEQUAL=24;
+    public static final int MINUS=25;
+    public static final int MULT=26;
+    public static final int NEGATIVEINFINITY=27;
+    public static final int NULLITY=28;
+    public static final int PLUS=29;
+    public static final int PRINT=30;
+    public static final int SEMICOLON=31;
+    public static final int STRING=32;
+    public static final int VARINT=33;
+    public static final int VARSTRING=34;
+    public static final int VARTRANSREAL=35;
+    public static final int WHILE=36;
+    public static final int WHITESPACE=37;
 
     // delegates
     public Parser[] getDelegates() {
@@ -166,7 +170,7 @@ public TreeAdaptor getTreeAdaptor() {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==ASSIGN||LA1_0==DECLARE||(LA1_0 >= DIGITS && LA1_0 <= DIV)||(LA1_0 >= EQUALTO && LA1_0 <= IF)||(LA1_0 >= LESSTHAN && LA1_0 <= PRINT)||LA1_0==STRING||LA1_0==WHILE) ) {
+                if ( (LA1_0==ASSIGN||LA1_0==DECLARE||(LA1_0 >= DIGITS && LA1_0 <= DIV)||(LA1_0 >= EQUALTO && LA1_0 <= IF)||(LA1_0 >= INFINITY && LA1_0 <= PRINT)||LA1_0==STRING||LA1_0==WHILE) ) {
                     alt1=1;
                 }
 
@@ -273,8 +277,11 @@ public TreeAdaptor getTreeAdaptor() {
             case DIGITS:
             case DIV:
             case IDENTIFIER:
+            case INFINITY:
             case MINUS:
             case MULT:
+            case NEGATIVEINFINITY:
+            case NULLITY:
             case PLUS:
             case STRING:
                 {
@@ -499,7 +506,10 @@ public TreeAdaptor getTreeAdaptor() {
             case DIGITS:
             case DIV:
             case IDENTIFIER:
+            case INFINITY:
             case MULT:
+            case NEGATIVEINFINITY:
+            case NULLITY:
                 {
                 alt3=2;
                 }
@@ -644,7 +654,7 @@ public TreeAdaptor getTreeAdaptor() {
             if ( (LA4_0==DIV||LA4_0==MULT) ) {
                 alt4=1;
             }
-            else if ( (LA4_0==DIGITS||LA4_0==IDENTIFIER) ) {
+            else if ( (LA4_0==DIGITS||LA4_0==IDENTIFIER||LA4_0==INFINITY||(LA4_0 >= NEGATIVEINFINITY && LA4_0 <= NULLITY)) ) {
                 alt4=2;
             }
             else {
@@ -740,7 +750,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "factor"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:42:1: factor : ( DIGITS | IDENTIFIER );
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:42:1: factor : ( DIGITS | IDENTIFIER | NULLITY | INFINITY | NEGATIVEINFINITY );
     public final EsperParser.factor_return factor() throws RecognitionException {
         EsperParser.factor_return retval = new EsperParser.factor_return();
         retval.start = input.LT(1);
@@ -753,7 +763,7 @@ public TreeAdaptor getTreeAdaptor() {
         Object set20_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:42:9: ( DIGITS | IDENTIFIER )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:42:9: ( DIGITS | IDENTIFIER | NULLITY | INFINITY | NEGATIVEINFINITY )
             // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:
             {
             root_0 = (Object)adaptor.nil();
@@ -761,7 +771,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             set20=(Token)input.LT(1);
 
-            if ( input.LA(1)==DIGITS||input.LA(1)==IDENTIFIER ) {
+            if ( input.LA(1)==DIGITS||input.LA(1)==IDENTIFIER||input.LA(1)==INFINITY||(input.LA(1) >= NEGATIVEINFINITY && input.LA(1) <= NULLITY) ) {
                 input.consume();
                 adaptor.addChild(root_0, 
                 (Object)adaptor.create(set20)
@@ -805,7 +815,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "declaration"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:44:1: declaration : DECLARE ^ IDENTIFIER vartype ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:48:1: declaration : DECLARE ^ IDENTIFIER vartype ;
     public final EsperParser.declaration_return declaration() throws RecognitionException {
         EsperParser.declaration_return retval = new EsperParser.declaration_return();
         retval.start = input.LT(1);
@@ -822,27 +832,27 @@ public TreeAdaptor getTreeAdaptor() {
         Object IDENTIFIER22_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:44:13: ( DECLARE ^ IDENTIFIER vartype )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:44:15: DECLARE ^ IDENTIFIER vartype
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:48:13: ( DECLARE ^ IDENTIFIER vartype )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:48:15: DECLARE ^ IDENTIFIER vartype
             {
             root_0 = (Object)adaptor.nil();
 
 
-            DECLARE21=(Token)match(input,DECLARE,FOLLOW_DECLARE_in_declaration343); 
+            DECLARE21=(Token)match(input,DECLARE,FOLLOW_DECLARE_in_declaration388); 
             DECLARE21_tree = 
             (Object)adaptor.create(DECLARE21)
             ;
             root_0 = (Object)adaptor.becomeRoot(DECLARE21_tree, root_0);
 
 
-            IDENTIFIER22=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_declaration346); 
+            IDENTIFIER22=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_declaration391); 
             IDENTIFIER22_tree = 
             (Object)adaptor.create(IDENTIFIER22)
             ;
             adaptor.addChild(root_0, IDENTIFIER22_tree);
 
 
-            pushFollow(FOLLOW_vartype_in_declaration348);
+            pushFollow(FOLLOW_vartype_in_declaration393);
             vartype23=vartype();
 
             state._fsp--;
@@ -880,7 +890,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "assign"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:45:1: assign : ASSIGN ^ IDENTIFIER expr ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:49:1: assign : ASSIGN ^ IDENTIFIER expr ;
     public final EsperParser.assign_return assign() throws RecognitionException {
         EsperParser.assign_return retval = new EsperParser.assign_return();
         retval.start = input.LT(1);
@@ -897,27 +907,27 @@ public TreeAdaptor getTreeAdaptor() {
         Object IDENTIFIER25_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:45:8: ( ASSIGN ^ IDENTIFIER expr )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:45:10: ASSIGN ^ IDENTIFIER expr
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:49:8: ( ASSIGN ^ IDENTIFIER expr )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:49:10: ASSIGN ^ IDENTIFIER expr
             {
             root_0 = (Object)adaptor.nil();
 
 
-            ASSIGN24=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assign356); 
+            ASSIGN24=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assign401); 
             ASSIGN24_tree = 
             (Object)adaptor.create(ASSIGN24)
             ;
             root_0 = (Object)adaptor.becomeRoot(ASSIGN24_tree, root_0);
 
 
-            IDENTIFIER25=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_assign359); 
+            IDENTIFIER25=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_assign404); 
             IDENTIFIER25_tree = 
             (Object)adaptor.create(IDENTIFIER25)
             ;
             adaptor.addChild(root_0, IDENTIFIER25_tree);
 
 
-            pushFollow(FOLLOW_expr_in_assign361);
+            pushFollow(FOLLOW_expr_in_assign406);
             expr26=expr();
 
             state._fsp--;
@@ -955,7 +965,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "ifthenelse"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:46:1: ifthenelse : if_ ( elseif )* ( else_ )* ENDIF ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:50:1: ifthenelse : if_ ( elseif )* ( else_ )* ENDIF ;
     public final EsperParser.ifthenelse_return ifthenelse() throws RecognitionException {
         EsperParser.ifthenelse_return retval = new EsperParser.ifthenelse_return();
         retval.start = input.LT(1);
@@ -974,20 +984,20 @@ public TreeAdaptor getTreeAdaptor() {
         Object ENDIF30_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:46:12: ( if_ ( elseif )* ( else_ )* ENDIF )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:46:14: if_ ( elseif )* ( else_ )* ENDIF
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:50:12: ( if_ ( elseif )* ( else_ )* ENDIF )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:50:14: if_ ( elseif )* ( else_ )* ENDIF
             {
             root_0 = (Object)adaptor.nil();
 
 
-            pushFollow(FOLLOW_if__in_ifthenelse370);
+            pushFollow(FOLLOW_if__in_ifthenelse415);
             if_27=if_();
 
             state._fsp--;
 
             adaptor.addChild(root_0, if_27.getTree());
 
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:46:18: ( elseif )*
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:50:18: ( elseif )*
             loop5:
             do {
                 int alt5=2;
@@ -1000,9 +1010,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt5) {
             	case 1 :
-            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:46:18: elseif
+            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:50:18: elseif
             	    {
-            	    pushFollow(FOLLOW_elseif_in_ifthenelse372);
+            	    pushFollow(FOLLOW_elseif_in_ifthenelse417);
             	    elseif28=elseif();
 
             	    state._fsp--;
@@ -1018,7 +1028,7 @@ public TreeAdaptor getTreeAdaptor() {
             } while (true);
 
 
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:46:26: ( else_ )*
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:50:26: ( else_ )*
             loop6:
             do {
                 int alt6=2;
@@ -1031,9 +1041,9 @@ public TreeAdaptor getTreeAdaptor() {
 
                 switch (alt6) {
             	case 1 :
-            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:46:26: else_
+            	    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:50:26: else_
             	    {
-            	    pushFollow(FOLLOW_else__in_ifthenelse375);
+            	    pushFollow(FOLLOW_else__in_ifthenelse420);
             	    else_29=else_();
 
             	    state._fsp--;
@@ -1049,7 +1059,7 @@ public TreeAdaptor getTreeAdaptor() {
             } while (true);
 
 
-            ENDIF30=(Token)match(input,ENDIF,FOLLOW_ENDIF_in_ifthenelse378); 
+            ENDIF30=(Token)match(input,ENDIF,FOLLOW_ENDIF_in_ifthenelse423); 
             ENDIF30_tree = 
             (Object)adaptor.create(ENDIF30)
             ;
@@ -1087,7 +1097,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "if_"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:47:1: if_ : IF ^ condition statements ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:51:1: if_ : IF ^ condition statements ;
     public final EsperParser.if__return if_() throws RecognitionException {
         EsperParser.if__return retval = new EsperParser.if__return();
         retval.start = input.LT(1);
@@ -1104,27 +1114,27 @@ public TreeAdaptor getTreeAdaptor() {
         Object IF31_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:47:5: ( IF ^ condition statements )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:47:7: IF ^ condition statements
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:51:5: ( IF ^ condition statements )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:51:7: IF ^ condition statements
             {
             root_0 = (Object)adaptor.nil();
 
 
-            IF31=(Token)match(input,IF,FOLLOW_IF_in_if_386); 
+            IF31=(Token)match(input,IF,FOLLOW_IF_in_if_431); 
             IF31_tree = 
             (Object)adaptor.create(IF31)
             ;
             root_0 = (Object)adaptor.becomeRoot(IF31_tree, root_0);
 
 
-            pushFollow(FOLLOW_condition_in_if_389);
+            pushFollow(FOLLOW_condition_in_if_434);
             condition32=condition();
 
             state._fsp--;
 
             adaptor.addChild(root_0, condition32.getTree());
 
-            pushFollow(FOLLOW_statements_in_if_391);
+            pushFollow(FOLLOW_statements_in_if_436);
             statements33=statements();
 
             state._fsp--;
@@ -1162,7 +1172,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "elseif"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:48:1: elseif : ELSEIF ^ statements ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:52:1: elseif : ELSEIF ^ statements ;
     public final EsperParser.elseif_return elseif() throws RecognitionException {
         EsperParser.elseif_return retval = new EsperParser.elseif_return();
         retval.start = input.LT(1);
@@ -1177,20 +1187,20 @@ public TreeAdaptor getTreeAdaptor() {
         Object ELSEIF34_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:48:8: ( ELSEIF ^ statements )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:48:10: ELSEIF ^ statements
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:52:8: ( ELSEIF ^ statements )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:52:10: ELSEIF ^ statements
             {
             root_0 = (Object)adaptor.nil();
 
 
-            ELSEIF34=(Token)match(input,ELSEIF,FOLLOW_ELSEIF_in_elseif399); 
+            ELSEIF34=(Token)match(input,ELSEIF,FOLLOW_ELSEIF_in_elseif444); 
             ELSEIF34_tree = 
             (Object)adaptor.create(ELSEIF34)
             ;
             root_0 = (Object)adaptor.becomeRoot(ELSEIF34_tree, root_0);
 
 
-            pushFollow(FOLLOW_statements_in_elseif402);
+            pushFollow(FOLLOW_statements_in_elseif447);
             statements35=statements();
 
             state._fsp--;
@@ -1228,7 +1238,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "else_"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:49:1: else_ : ELSE ^ statements ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:53:1: else_ : ELSE ^ statements ;
     public final EsperParser.else__return else_() throws RecognitionException {
         EsperParser.else__return retval = new EsperParser.else__return();
         retval.start = input.LT(1);
@@ -1243,20 +1253,20 @@ public TreeAdaptor getTreeAdaptor() {
         Object ELSE36_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:49:7: ( ELSE ^ statements )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:49:9: ELSE ^ statements
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:53:7: ( ELSE ^ statements )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:53:9: ELSE ^ statements
             {
             root_0 = (Object)adaptor.nil();
 
 
-            ELSE36=(Token)match(input,ELSE,FOLLOW_ELSE_in_else_410); 
+            ELSE36=(Token)match(input,ELSE,FOLLOW_ELSE_in_else_455); 
             ELSE36_tree = 
             (Object)adaptor.create(ELSE36)
             ;
             root_0 = (Object)adaptor.becomeRoot(ELSE36_tree, root_0);
 
 
-            pushFollow(FOLLOW_statements_in_else_413);
+            pushFollow(FOLLOW_statements_in_else_458);
             statements37=statements();
 
             state._fsp--;
@@ -1294,7 +1304,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "condition"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:50:1: condition : conditionaloperator ^ expr expr ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:54:1: condition : conditionaloperator ^ expr expr ;
     public final EsperParser.condition_return condition() throws RecognitionException {
         EsperParser.condition_return retval = new EsperParser.condition_return();
         retval.start = input.LT(1);
@@ -1311,27 +1321,27 @@ public TreeAdaptor getTreeAdaptor() {
 
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:50:11: ( conditionaloperator ^ expr expr )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:50:13: conditionaloperator ^ expr expr
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:54:11: ( conditionaloperator ^ expr expr )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:54:13: conditionaloperator ^ expr expr
             {
             root_0 = (Object)adaptor.nil();
 
 
-            pushFollow(FOLLOW_conditionaloperator_in_condition421);
+            pushFollow(FOLLOW_conditionaloperator_in_condition466);
             conditionaloperator38=conditionaloperator();
 
             state._fsp--;
 
             root_0 = (Object)adaptor.becomeRoot(conditionaloperator38.getTree(), root_0);
 
-            pushFollow(FOLLOW_expr_in_condition424);
+            pushFollow(FOLLOW_expr_in_condition469);
             expr39=expr();
 
             state._fsp--;
 
             adaptor.addChild(root_0, expr39.getTree());
 
-            pushFollow(FOLLOW_expr_in_condition426);
+            pushFollow(FOLLOW_expr_in_condition471);
             expr40=expr();
 
             state._fsp--;
@@ -1369,7 +1379,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "conditionaloperator"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:51:1: conditionaloperator : ( LESSTHAN | EQUALTO | GREATERTHAN | LESSTHANEQUAL | GREATERTHANEQUAL );
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:55:1: conditionaloperator : ( LESSTHAN | EQUALTO | GREATERTHAN | LESSTHANEQUAL | GREATERTHANEQUAL );
     public final EsperParser.conditionaloperator_return conditionaloperator() throws RecognitionException {
         EsperParser.conditionaloperator_return retval = new EsperParser.conditionaloperator_return();
         retval.start = input.LT(1);
@@ -1382,7 +1392,7 @@ public TreeAdaptor getTreeAdaptor() {
         Object set41_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:51:21: ( LESSTHAN | EQUALTO | GREATERTHAN | LESSTHANEQUAL | GREATERTHANEQUAL )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:55:21: ( LESSTHAN | EQUALTO | GREATERTHAN | LESSTHANEQUAL | GREATERTHANEQUAL )
             // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:
             {
             root_0 = (Object)adaptor.nil();
@@ -1434,7 +1444,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "print"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:57:1: print : PRINT ^ expr ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:61:1: print : PRINT ^ expr ;
     public final EsperParser.print_return print() throws RecognitionException {
         EsperParser.print_return retval = new EsperParser.print_return();
         retval.start = input.LT(1);
@@ -1449,20 +1459,20 @@ public TreeAdaptor getTreeAdaptor() {
         Object PRINT42_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:57:7: ( PRINT ^ expr )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:57:9: PRINT ^ expr
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:61:7: ( PRINT ^ expr )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:61:9: PRINT ^ expr
             {
             root_0 = (Object)adaptor.nil();
 
 
-            PRINT42=(Token)match(input,PRINT,FOLLOW_PRINT_in_print562); 
+            PRINT42=(Token)match(input,PRINT,FOLLOW_PRINT_in_print607); 
             PRINT42_tree = 
             (Object)adaptor.create(PRINT42)
             ;
             root_0 = (Object)adaptor.becomeRoot(PRINT42_tree, root_0);
 
 
-            pushFollow(FOLLOW_expr_in_print565);
+            pushFollow(FOLLOW_expr_in_print610);
             expr43=expr();
 
             state._fsp--;
@@ -1500,7 +1510,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "vartype"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:58:1: vartype : ( VARINT | VARSTRING );
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:62:1: vartype : ( VARINT | VARSTRING | VARTRANSREAL );
     public final EsperParser.vartype_return vartype() throws RecognitionException {
         EsperParser.vartype_return retval = new EsperParser.vartype_return();
         retval.start = input.LT(1);
@@ -1513,7 +1523,7 @@ public TreeAdaptor getTreeAdaptor() {
         Object set44_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:58:9: ( VARINT | VARSTRING )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:62:9: ( VARINT | VARSTRING | VARTRANSREAL )
             // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:
             {
             root_0 = (Object)adaptor.nil();
@@ -1521,7 +1531,7 @@ public TreeAdaptor getTreeAdaptor() {
 
             set44=(Token)input.LT(1);
 
-            if ( (input.LA(1) >= VARINT && input.LA(1) <= VARSTRING) ) {
+            if ( (input.LA(1) >= VARINT && input.LA(1) <= VARTRANSREAL) ) {
                 input.consume();
                 adaptor.addChild(root_0, 
                 (Object)adaptor.create(set44)
@@ -1565,7 +1575,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "forloop"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:61:1: forloop : for_ ENDFOR ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:66:1: forloop : for_ ENDFOR ;
     public final EsperParser.forloop_return forloop() throws RecognitionException {
         EsperParser.forloop_return retval = new EsperParser.forloop_return();
         retval.start = input.LT(1);
@@ -1580,20 +1590,20 @@ public TreeAdaptor getTreeAdaptor() {
         Object ENDFOR46_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:61:9: ( for_ ENDFOR )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:61:11: for_ ENDFOR
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:66:9: ( for_ ENDFOR )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:66:11: for_ ENDFOR
             {
             root_0 = (Object)adaptor.nil();
 
 
-            pushFollow(FOLLOW_for__in_forloop601);
+            pushFollow(FOLLOW_for__in_forloop658);
             for_45=for_();
 
             state._fsp--;
 
             adaptor.addChild(root_0, for_45.getTree());
 
-            ENDFOR46=(Token)match(input,ENDFOR,FOLLOW_ENDFOR_in_forloop603); 
+            ENDFOR46=(Token)match(input,ENDFOR,FOLLOW_ENDFOR_in_forloop660); 
             ENDFOR46_tree = 
             (Object)adaptor.create(ENDFOR46)
             ;
@@ -1631,7 +1641,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "for_"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:62:1: for_ : FOR ^ forgap statements ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:67:1: for_ : FOR ^ forgap statements ;
     public final EsperParser.for__return for_() throws RecognitionException {
         EsperParser.for__return retval = new EsperParser.for__return();
         retval.start = input.LT(1);
@@ -1648,27 +1658,27 @@ public TreeAdaptor getTreeAdaptor() {
         Object FOR47_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:62:6: ( FOR ^ forgap statements )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:62:8: FOR ^ forgap statements
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:67:6: ( FOR ^ forgap statements )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:67:8: FOR ^ forgap statements
             {
             root_0 = (Object)adaptor.nil();
 
 
-            FOR47=(Token)match(input,FOR,FOLLOW_FOR_in_for_611); 
+            FOR47=(Token)match(input,FOR,FOLLOW_FOR_in_for_668); 
             FOR47_tree = 
             (Object)adaptor.create(FOR47)
             ;
             root_0 = (Object)adaptor.becomeRoot(FOR47_tree, root_0);
 
 
-            pushFollow(FOLLOW_forgap_in_for_614);
+            pushFollow(FOLLOW_forgap_in_for_671);
             forgap48=forgap();
 
             state._fsp--;
 
             adaptor.addChild(root_0, forgap48.getTree());
 
-            pushFollow(FOLLOW_statements_in_for_616);
+            pushFollow(FOLLOW_statements_in_for_673);
             statements49=statements();
 
             state._fsp--;
@@ -1706,7 +1716,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "forgap"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:63:1: forgap : ( INCREASING | DECREASING ) ^ factor factor ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:68:1: forgap : ( INCREASING | DECREASING ) ^ factor factor ;
     public final EsperParser.forgap_return forgap() throws RecognitionException {
         EsperParser.forgap_return retval = new EsperParser.forgap_return();
         retval.start = input.LT(1);
@@ -1723,8 +1733,8 @@ public TreeAdaptor getTreeAdaptor() {
         Object set50_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:63:8: ( ( INCREASING | DECREASING ) ^ factor factor )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:63:10: ( INCREASING | DECREASING ) ^ factor factor
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:68:8: ( ( INCREASING | DECREASING ) ^ factor factor )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:68:10: ( INCREASING | DECREASING ) ^ factor factor
             {
             root_0 = (Object)adaptor.nil();
 
@@ -1746,14 +1756,14 @@ public TreeAdaptor getTreeAdaptor() {
             }
 
 
-            pushFollow(FOLLOW_factor_in_forgap634);
+            pushFollow(FOLLOW_factor_in_forgap691);
             factor51=factor();
 
             state._fsp--;
 
             adaptor.addChild(root_0, factor51.getTree());
 
-            pushFollow(FOLLOW_factor_in_forgap636);
+            pushFollow(FOLLOW_factor_in_forgap693);
             factor52=factor();
 
             state._fsp--;
@@ -1791,7 +1801,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "whileloop"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:64:1: whileloop : while_ ENDWHILE ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:69:1: whileloop : while_ ENDWHILE ;
     public final EsperParser.whileloop_return whileloop() throws RecognitionException {
         EsperParser.whileloop_return retval = new EsperParser.whileloop_return();
         retval.start = input.LT(1);
@@ -1806,20 +1816,20 @@ public TreeAdaptor getTreeAdaptor() {
         Object ENDWHILE54_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:64:11: ( while_ ENDWHILE )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:64:13: while_ ENDWHILE
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:69:11: ( while_ ENDWHILE )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:69:13: while_ ENDWHILE
             {
             root_0 = (Object)adaptor.nil();
 
 
-            pushFollow(FOLLOW_while__in_whileloop643);
+            pushFollow(FOLLOW_while__in_whileloop700);
             while_53=while_();
 
             state._fsp--;
 
             adaptor.addChild(root_0, while_53.getTree());
 
-            ENDWHILE54=(Token)match(input,ENDWHILE,FOLLOW_ENDWHILE_in_whileloop645); 
+            ENDWHILE54=(Token)match(input,ENDWHILE,FOLLOW_ENDWHILE_in_whileloop702); 
             ENDWHILE54_tree = 
             (Object)adaptor.create(ENDWHILE54)
             ;
@@ -1857,7 +1867,7 @@ public TreeAdaptor getTreeAdaptor() {
 
 
     // $ANTLR start "while_"
-    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:65:1: while_ : WHILE ^ condition statements ;
+    // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:70:1: while_ : WHILE ^ condition statements ;
     public final EsperParser.while__return while_() throws RecognitionException {
         EsperParser.while__return retval = new EsperParser.while__return();
         retval.start = input.LT(1);
@@ -1874,27 +1884,27 @@ public TreeAdaptor getTreeAdaptor() {
         Object WHILE55_tree=null;
 
         try {
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:65:8: ( WHILE ^ condition statements )
-            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:65:10: WHILE ^ condition statements
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:70:8: ( WHILE ^ condition statements )
+            // C:\\Users\\Alex\\EclipseWorkspace\\esper-compiler\\src\\antlrGenerated\\Esper.g:70:10: WHILE ^ condition statements
             {
             root_0 = (Object)adaptor.nil();
 
 
-            WHILE55=(Token)match(input,WHILE,FOLLOW_WHILE_in_while_652); 
+            WHILE55=(Token)match(input,WHILE,FOLLOW_WHILE_in_while_709); 
             WHILE55_tree = 
             (Object)adaptor.create(WHILE55)
             ;
             root_0 = (Object)adaptor.becomeRoot(WHILE55_tree, root_0);
 
 
-            pushFollow(FOLLOW_condition_in_while_655);
+            pushFollow(FOLLOW_condition_in_while_712);
             condition56=condition();
 
             state._fsp--;
 
             adaptor.addChild(root_0, condition56.getTree());
 
-            pushFollow(FOLLOW_statements_in_while_657);
+            pushFollow(FOLLOW_statements_in_while_714);
             statements57=statements();
 
             state._fsp--;
@@ -1930,7 +1940,7 @@ public TreeAdaptor getTreeAdaptor() {
  
 
     public static final BitSet FOLLOW_statements_in_program55 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_statement_in_statements63 = new BitSet(new long[]{0x000000012FDF8352L});
+    public static final BitSet FOLLOW_statement_in_statements63 = new BitSet(new long[]{0x000000117FDF8352L});
     public static final BitSet FOLLOW_ifthenelse_in_statement72 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_condition_in_statement86 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_expr_in_statement100 = new BitSet(new long[]{0x0000000000000002L});
@@ -1939,49 +1949,49 @@ public TreeAdaptor getTreeAdaptor() {
     public static final BitSet FOLLOW_print_in_statement144 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_forloop_in_statement158 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_whileloop_in_statement172 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_expr193 = new BitSet(new long[]{0x0000000027080300L});
-    public static final BitSet FOLLOW_expr_in_expr200 = new BitSet(new long[]{0x0000000027080300L});
+    public static final BitSet FOLLOW_set_in_expr193 = new BitSet(new long[]{0x000000013E480300L});
+    public static final BitSet FOLLOW_expr_in_expr200 = new BitSet(new long[]{0x000000013E480300L});
     public static final BitSet FOLLOW_expr_in_expr202 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_term_in_expr215 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_STRING_in_expr228 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_term265 = new BitSet(new long[]{0x0000000027080300L});
-    public static final BitSet FOLLOW_expr_in_term272 = new BitSet(new long[]{0x0000000027080300L});
+    public static final BitSet FOLLOW_set_in_term265 = new BitSet(new long[]{0x000000013E480300L});
+    public static final BitSet FOLLOW_expr_in_term272 = new BitSet(new long[]{0x000000013E480300L});
     public static final BitSet FOLLOW_expr_in_term274 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_factor_in_term287 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DECLARE_in_declaration343 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_declaration346 = new BitSet(new long[]{0x00000000C0000000L});
-    public static final BitSet FOLLOW_vartype_in_declaration348 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ASSIGN_in_assign356 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_IDENTIFIER_in_assign359 = new BitSet(new long[]{0x0000000027080300L});
-    public static final BitSet FOLLOW_expr_in_assign361 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_if__in_ifthenelse370 = new BitSet(new long[]{0x0000000000002C00L});
-    public static final BitSet FOLLOW_elseif_in_ifthenelse372 = new BitSet(new long[]{0x0000000000002C00L});
-    public static final BitSet FOLLOW_else__in_ifthenelse375 = new BitSet(new long[]{0x0000000000002400L});
-    public static final BitSet FOLLOW_ENDIF_in_ifthenelse378 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IF_in_if_386 = new BitSet(new long[]{0x0000000000C68000L});
-    public static final BitSet FOLLOW_condition_in_if_389 = new BitSet(new long[]{0x000000012FDF8350L});
-    public static final BitSet FOLLOW_statements_in_if_391 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ELSEIF_in_elseif399 = new BitSet(new long[]{0x000000012FDF8350L});
-    public static final BitSet FOLLOW_statements_in_elseif402 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ELSE_in_else_410 = new BitSet(new long[]{0x000000012FDF8350L});
-    public static final BitSet FOLLOW_statements_in_else_413 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_conditionaloperator_in_condition421 = new BitSet(new long[]{0x0000000027080300L});
-    public static final BitSet FOLLOW_expr_in_condition424 = new BitSet(new long[]{0x0000000027080300L});
-    public static final BitSet FOLLOW_expr_in_condition426 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PRINT_in_print562 = new BitSet(new long[]{0x0000000027080300L});
-    public static final BitSet FOLLOW_expr_in_print565 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_for__in_forloop601 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_ENDFOR_in_forloop603 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FOR_in_for_611 = new BitSet(new long[]{0x0000000000200080L});
-    public static final BitSet FOLLOW_forgap_in_for_614 = new BitSet(new long[]{0x000000012FDF8350L});
-    public static final BitSet FOLLOW_statements_in_for_616 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_forgap625 = new BitSet(new long[]{0x0000000000080100L});
-    public static final BitSet FOLLOW_factor_in_forgap634 = new BitSet(new long[]{0x0000000000080100L});
-    public static final BitSet FOLLOW_factor_in_forgap636 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_while__in_whileloop643 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_ENDWHILE_in_whileloop645 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WHILE_in_while_652 = new BitSet(new long[]{0x0000000000C68000L});
-    public static final BitSet FOLLOW_condition_in_while_655 = new BitSet(new long[]{0x000000012FDF8350L});
-    public static final BitSet FOLLOW_statements_in_while_657 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DECLARE_in_declaration388 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_declaration391 = new BitSet(new long[]{0x0000000E00000000L});
+    public static final BitSet FOLLOW_vartype_in_declaration393 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ASSIGN_in_assign401 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_IDENTIFIER_in_assign404 = new BitSet(new long[]{0x000000013E480300L});
+    public static final BitSet FOLLOW_expr_in_assign406 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_if__in_ifthenelse415 = new BitSet(new long[]{0x0000000000002C00L});
+    public static final BitSet FOLLOW_elseif_in_ifthenelse417 = new BitSet(new long[]{0x0000000000002C00L});
+    public static final BitSet FOLLOW_else__in_ifthenelse420 = new BitSet(new long[]{0x0000000000002400L});
+    public static final BitSet FOLLOW_ENDIF_in_ifthenelse423 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IF_in_if_431 = new BitSet(new long[]{0x0000000001868000L});
+    public static final BitSet FOLLOW_condition_in_if_434 = new BitSet(new long[]{0x000000117FDF8350L});
+    public static final BitSet FOLLOW_statements_in_if_436 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ELSEIF_in_elseif444 = new BitSet(new long[]{0x000000117FDF8350L});
+    public static final BitSet FOLLOW_statements_in_elseif447 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ELSE_in_else_455 = new BitSet(new long[]{0x000000117FDF8350L});
+    public static final BitSet FOLLOW_statements_in_else_458 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_conditionaloperator_in_condition466 = new BitSet(new long[]{0x000000013E480300L});
+    public static final BitSet FOLLOW_expr_in_condition469 = new BitSet(new long[]{0x000000013E480300L});
+    public static final BitSet FOLLOW_expr_in_condition471 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PRINT_in_print607 = new BitSet(new long[]{0x000000013E480300L});
+    public static final BitSet FOLLOW_expr_in_print610 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_for__in_forloop658 = new BitSet(new long[]{0x0000000000001000L});
+    public static final BitSet FOLLOW_ENDFOR_in_forloop660 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FOR_in_for_668 = new BitSet(new long[]{0x0000000000200080L});
+    public static final BitSet FOLLOW_forgap_in_for_671 = new BitSet(new long[]{0x000000117FDF8350L});
+    public static final BitSet FOLLOW_statements_in_for_673 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_forgap682 = new BitSet(new long[]{0x0000000018480100L});
+    public static final BitSet FOLLOW_factor_in_forgap691 = new BitSet(new long[]{0x0000000018480100L});
+    public static final BitSet FOLLOW_factor_in_forgap693 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_while__in_whileloop700 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_ENDWHILE_in_whileloop702 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_WHILE_in_while_709 = new BitSet(new long[]{0x0000000001868000L});
+    public static final BitSet FOLLOW_condition_in_while_712 = new BitSet(new long[]{0x000000117FDF8350L});
+    public static final BitSet FOLLOW_statements_in_while_714 = new BitSet(new long[]{0x0000000000000002L});
 
 }

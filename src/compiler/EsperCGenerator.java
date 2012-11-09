@@ -11,6 +11,10 @@ public class EsperCGenerator {
 		for (VariableInformation var : variableList)
 			if (var.name.equals(name))
 				return var.type;
+		
+		if (name.equals("inf") || name.equals("-inf") || name.equals("nullity"))
+			return "transreal";
+		
 		return "unknown";
 	}
 
@@ -90,15 +94,57 @@ public class EsperCGenerator {
 		String indentString = getIndentString(indent);
 
 		String code = "";
+		
+		String variableName;
+		String variableType;
 
 		switch (parseRoot.attribute) {
+		
+		//Transreal
+		case "INFINITY":
+			
+			code += "get_infinity()";
+			break;
+			
+		case "NEGATIVEINFINITY":
+			
+			code += "get_negative_infinity()";
+			break;
+			
+		case "NULLITY":
+			
+			code += "get_nullity()";
+			break;
 
 		// Arithmetic
 		case "PLUS":
 		case "MULT":
 		case "MINUS":
 		case "DIV":
+			
+			variableName = parseRoot.children.get(0).value;
+			String variableNameTwo = parseRoot.children.get(1).value;
+			variableType = getVariableTypeFromName(variableName);
+			String variableTypeTwo = getVariableTypeFromName(variableNameTwo);
+			
+			if (variableType.equals("transreal") || variableTypeTwo.equals("transreal")) {
 
+				if (parseRoot.attribute.equals("PLUS"))
+					code += " transreal_add(";
+				else if (parseRoot.attribute.equals("MULT"))
+					code += " transreal_mult(";
+				else if (parseRoot.attribute.equals("MINUS"))
+					code += " transreal_sub(";
+				else if (parseRoot.attribute.equals("DIV"))
+					code += " transreal_div(";
+				
+				code += generateNode(parseRoot.children.get(0), 0);
+				code += " ,";
+				code += generateNode(parseRoot.children.get(1), 0);
+				code += ")";
+				break;
+			}
+		
 			code += " (";
 			code += generateNode(parseRoot.children.get(0), 0);
 
@@ -172,8 +218,27 @@ public class EsperCGenerator {
 		// Variable setting
 		case "ASSIGN":
 
-			code += indentString + parseRoot.children.get(0).value + " = "
-					+ parseRoot.children.get(1).value + ";\n";
+			//Check transreal
+			variableName = parseRoot.children.get(0).value;
+			variableType = getVariableTypeFromName(variableName);
+			code += indentString + parseRoot.children.get(0).value + " = ";
+
+			/*if (variableType.equals("transreal")) {
+				
+				String transrealType = parseRoot.children.get(1).value;
+				if (transrealType.equals("nullity"))
+					code += "get_nullity();\n";
+				else if (transrealType.equals("inf"))
+					code += "get_infinity();\n";
+				else if (transrealType.equals("-inf"))
+					code += "get_negative_infinity();\n";
+				else
+					code += "get_value(" + transrealType + ");\n";
+			}
+			else
+				code += parseRoot.children.get(1).value + ";\n";*/
+			
+			code += generateNode(parseRoot.children.get(1), 0) + ";\n";
 
 			break;
 
@@ -248,11 +313,20 @@ public class EsperCGenerator {
 		// Print function
 		case "PRINT":
 
+			//Check transreal
+			variableName = parseRoot.children.get(0).value;
+			variableType = getVariableTypeFromName(variableName);
+			
+			if (variableType.equals("transreal")) {
+				code += indentString + "transreal_print(" + variableName + ");\n";
+				break;
+			}
+			
 			code += indentString + "printf(\"";
 
 			// Need a variable list to determine type
-			String variableName = parseRoot.children.get(0).value;
-			String variableType = getVariableTypeFromName(variableName);
+			variableName = parseRoot.children.get(0).value;
+			variableType = getVariableTypeFromName(variableName);
 
 			if (variableType.equals("int"))
 				code += "%d";
@@ -360,7 +434,7 @@ public class EsperCGenerator {
 		sb.append("\t\treturn get_nullity();\n");
 
 		sb.append("\t//+INF + -INF\n");
-		sb.append("\tif ((a.special_case == INF && b.special_case) == NINF ||\n");
+		sb.append("\tif ((a.special_case == INF && b.special_case == NINF) ||\n");
 		sb.append("\t    (a.special_case == NINF && b.special_case == INF))\n");
 		sb.append("\t\treturn get_nullity();\n");
 
