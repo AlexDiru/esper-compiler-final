@@ -10,6 +10,9 @@ public class EsperPostParser {
 	private ParseTree parseTree;
 	public ArrayList<VariableInformation> variableList = new ArrayList<VariableInformation>();
 	
+	//Keep track of undeclared variables so the error messages are only displayed once
+	public ArrayList<String> undeclaredVariables = new ArrayList<String>();
+	
 	public void getVariableList() {
 		getNodeVariableList(parseTree);
 	}
@@ -23,6 +26,25 @@ public class EsperPostParser {
 		//Iterate children
 		for (int i = 0; i < node.children.size(); i++)
 			getNodeVariableList(node.children.get(i));
+		
+		//Check for undeclared variables
+		for (int i = 0; i < node.children.size(); i++)
+			checkUndeclaredVariable(node.children.get(i));
+	}
+	
+	/**
+	 * Checks if a node (and its children) contains an undeclared variable
+	 * @param node The node to check
+	 */
+	private void checkUndeclaredVariable(ParseTree node) {
+	
+		if (node.attribute.equals("IDENTIFIER") && !containsVariable(node.value) && !undeclaredVariables.contains(node.value)) {
+			System.out.println("Undeclared Variable: " + node.value);
+			undeclaredVariables.add(node.value);
+		}
+	
+		for (int i = 0; i < node.children.size(); i++)
+			checkUndeclaredVariable(node.children.get(i));
 	}
 	
 	/**

@@ -11,42 +11,30 @@ public class EsperCGenerator {
 		for (VariableInformation var : variableList)
 			if (var.name.equals(name))
 				return var.type;
-		
+
 		if (name.equals("inf") || name.equals("-inf") || name.equals("nullity"))
 			return "transreal";
-		
+
 		return "unknown";
 	}
 
-	/**
-	 * Generates the left brace with the required indentation
-	 * 
-	 * @param indent
-	 *            The number of tabs to indent with
-	 * @return The string with the left brace
-	 */
+	/** Generates the left brace with the required indentation
+	 * @param indent The number of tabs to indent with
+	 * @return The string with the left brace */
 	private static String leftBrace(int indent) {
 		return "\n" + getIndentString(indent) + "{\n";
 	}
 
-	/**
-	 * Generates the right brace with the required indentation
-	 * 
-	 * @param indent
-	 *            The number of tabs to indent with
-	 * @return The string with the right brace
-	 */
+	/** Generates the right brace with the required indentation
+	 * @param indent The number of tabs to indent with
+	 * @return The string with the right brace */
 	private static String rightBrace(int indent) {
 		return getIndentString(indent) + "}\n";
 	}
 
-	/**
-	 * Gets the string with the correct number of indentations
-	 * 
-	 * @param indent
-	 *            The number of indentations
-	 * @return The string of indentation
-	 */
+	/** Gets the string with the correct number of indentations
+	 * @param indent The number of indentations
+	 * @return The string of indentation */
 	private static String getIndentString(int indent) {
 		String indentString = "";
 
@@ -55,17 +43,11 @@ public class EsperCGenerator {
 		return indentString;
 	}
 
-	/**
-	 * Generates the C code for the given tree
-	 * 
-	 * @param parseRoot
-	 *            The root node of the tree to parse
-	 * @param tvariableList
-	 *            The list of variables in the code
-	 * @return The generated C code
-	 */
-	public static String generate(ParseTree parseRoot,
-			ArrayList<VariableInformation> tvariableList) {
+	/** Generates the C code for the given tree
+	 * @param parseRoot The root node of the tree to parse
+	 * @param tvariableList The list of variables in the code
+	 * @return The generated C code */
+	public static String generate(ParseTree parseRoot, ArrayList<VariableInformation> tvariableList) {
 
 		variableList = tvariableList;
 
@@ -80,39 +62,35 @@ public class EsperCGenerator {
 		return code + "}\n";
 	}
 
-	/**
-	 * Generates C code for the given node
-	 * 
-	 * @param parseRoot
-	 *            The node to generate the code for
-	 * @param indent
-	 *            The number of indents
-	 * @return The C code
-	 */
+	/** Generates C code for the given node
+	 * @param parseRoot The node to generate the code for
+	 * @param indent The number of indents
+	 * @return The C code */
 	private static String generateNode(ParseTree parseRoot, int indent) {
 
+		// The string by which the code is indented
 		String indentString = getIndentString(indent);
 
+		// The generated C code
 		String code = "";
-		
+
+		// To store a variable name and variable type of a node
 		String variableName;
 		String variableType;
 
+		// The code is generated depending on the attribute of the current node
 		switch (parseRoot.attribute) {
-		
-		//Transreal
+
+		// Transreal numbers
 		case "INFINITY":
-			
 			code += "get_infinity()";
 			break;
-			
+
 		case "NEGATIVEINFINITY":
-			
 			code += "get_negative_infinity()";
 			break;
-			
+
 		case "NULLITY":
-			
 			code += "get_nullity()";
 			break;
 
@@ -121,14 +99,17 @@ public class EsperCGenerator {
 		case "MULT":
 		case "MINUS":
 		case "DIV":
-			
+
+			// Get the name and types of the variables
 			variableName = parseRoot.children.get(0).value;
 			String variableNameTwo = parseRoot.children.get(1).value;
 			variableType = getVariableTypeFromName(variableName);
 			String variableTypeTwo = getVariableTypeFromName(variableNameTwo);
-			
+
+			// If the variable is transreal
 			if (variableType.equals("transreal") || variableTypeTwo.equals("transreal")) {
 
+				// Use a transreal arithmetic function
 				if (parseRoot.attribute.equals("PLUS"))
 					code += " transreal_add(";
 				else if (parseRoot.attribute.equals("MULT"))
@@ -137,14 +118,22 @@ public class EsperCGenerator {
 					code += " transreal_sub(";
 				else if (parseRoot.attribute.equals("DIV"))
 					code += " transreal_div(";
-				
+
+				// If the child attribute is a transreal number)
 				code += generateNode(parseRoot.children.get(0), 0);
+
+				// Parameter separator
 				code += " ,";
+
+				// If the child attribute is a transreal number
 				code += generateNode(parseRoot.children.get(1), 0);
+				;
+
 				code += ")";
 				break;
 			}
-		
+
+			// Otherwise non-transreal arithmetic
 			code += " (";
 			code += generateNode(parseRoot.children.get(0), 0);
 
@@ -218,27 +207,19 @@ public class EsperCGenerator {
 		// Variable setting
 		case "ASSIGN":
 
-			//Check transreal
+			// Check transreal
 			variableName = parseRoot.children.get(0).value;
 			variableType = getVariableTypeFromName(variableName);
 			code += indentString + parseRoot.children.get(0).value + " = ";
-
-			/*if (variableType.equals("transreal")) {
-				
-				String transrealType = parseRoot.children.get(1).value;
-				if (transrealType.equals("nullity"))
-					code += "get_nullity();\n";
-				else if (transrealType.equals("inf"))
-					code += "get_infinity();\n";
-				else if (transrealType.equals("-inf"))
-					code += "get_negative_infinity();\n";
+			try {
+				Float.parseFloat(parseRoot.children.get(1).value);
+				if (variableType.equals("transreal"))
+					code += "get_value(" + parseRoot.children.get(1).value + ");\n";
 				else
-					code += "get_value(" + transrealType + ");\n";
+					code += generateNode(parseRoot.children.get(1), 0) + ";\n";
+			} catch (Exception e) {
+				code += generateNode(parseRoot.children.get(1), 0) + ";\n";
 			}
-			else
-				code += parseRoot.children.get(1).value + ";\n";*/
-			
-			code += generateNode(parseRoot.children.get(1), 0) + ";\n";
 
 			break;
 
@@ -313,20 +294,33 @@ public class EsperCGenerator {
 		// Print function
 		case "PRINT":
 
-			//Check transreal
+			// Check transreal
 			variableName = parseRoot.children.get(0).value;
 			variableType = getVariableTypeFromName(variableName);
-			
+
 			if (variableType.equals("transreal")) {
 				code += indentString + "transreal_print(" + variableName + ");\n";
 				break;
 			}
-			
+
 			code += indentString + "printf(\"";
 
 			// Need a variable list to determine type
-			variableName = parseRoot.children.get(0).value;
+			int n = 0;
+			variableName = parseRoot.children.get(n).value;
+			// Have to push through all the left parens
+			while (variableName.equals("(") || variableName.equals("*") || variableName.equals("/") || variableName.equals("+") || variableName.equals("-")) {
+				variableName = parseRoot.children.get(0).children.get(0).value;
+			}
+
 			variableType = getVariableTypeFromName(variableName);
+
+			if (variableType.equals("unknown"))
+				// Check string
+				if (parseRoot.children.get(0).value.charAt(0) == '\"' && parseRoot.children.get(0).value.charAt(parseRoot.children.get(0).value.length() - 1) == '\"')
+					variableType = "string";
+				else
+					System.out.println("UNKNOWN: " + parseRoot.children.get(0).value);
 
 			if (variableType.equals("int"))
 				code += "%d";
@@ -348,6 +342,12 @@ public class EsperCGenerator {
 
 			break;
 
+		case "STRING":
+
+			code += parseRoot.value;
+
+			break;
+
 		default:
 
 			break;
@@ -356,6 +356,20 @@ public class EsperCGenerator {
 		return code;
 	}
 
+	/** Checks if a string is a float
+	 * @param string The string to check
+	 * @return Whether the string is a float */
+	public static boolean isFloat(String string) {
+		try {
+			Float.parseFloat(string);
+			return true;
+		} catch (Exception ex) {
+			return false;
+		}
+	}
+
+	/** Returns the C code which implements the transreal functions
+	 * @return The C code */
 	public static String getTransrealLibrary() {
 
 		StringBuilder sb = new StringBuilder();
@@ -499,7 +513,7 @@ public class EsperCGenerator {
 		sb.append("{\n");
 		sb.append("\treturn transreal_mult(a, invert(b));\n");
 		sb.append("}\n\n");
-		
+
 		return sb.toString();
 	}
 }

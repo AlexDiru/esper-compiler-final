@@ -8,20 +8,6 @@ public class Program {
 		return "Failure";
 	}
 
-	// Runs tests for the grammar, all should pass
-	public static void test() {
-		String[] testCode = new String[] { "if eq a b set a b endif",
-				"set a b", "set b 5", "declare a int set a 5" };
-
-		for (String code : testCode) {
-			EsperCompiler compiler = new EsperCompiler(code, false);
-			if (!compiler.lexerSuccess || !compiler.parserSuccess) {
-				System.out.println("Failed test: ");
-				System.out.println(code);
-			}
-		}
-	}
-
 	public static void main(String[] args) {
 
 		// Command line arguments
@@ -29,17 +15,13 @@ public class Program {
 			System.out.println(arg);
 		}
 
-		// test();
+		
+		String code = "declare a transreal declare b transreal set b 1 set a + b nullity"; 
 
-		//String code = "declare a int if eq a b if eq a b print * b / 7 - a 1 set a - b 1 endif set b + 3 2 elseif lt a b set a 2 else set a 3 endif set a + 8 7 declare s str print \"hullo\"";
+		EsperCompiler compiler = new EsperCompiler();
+		compiler.readCommandLineArguments(args);
+		compiler.compile(code);
 		
-		String code = "declare a transreal " +
-					  "set a + inf -inf " +
-					  "print a";
-		
-		//String code = "for dec a -999\n print a\n print b\n endfor";
-		//String code = "while lte + 1 - 3 * 5 / 2 3 -1 print a endwhile print b";
-		EsperCompiler compiler = new EsperCompiler(code, true);
 		System.out.println("Compiled!");
 		System.out.println("Lexer status: "
 				+ successOrFailure(compiler.lexerSuccess) + " | Errors: "

@@ -9,8 +9,8 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.Token;
 import org.antlr.runtime.tree.CommonTree;
 
-import antlrGenerated.EsperLexer;
-import antlrGenerated.EsperParser;
+import compiler.EsperLexer;
+import compiler.EsperParser;
 
 public class EsperCompiler {
 
@@ -24,13 +24,51 @@ public class EsperCompiler {
 	private ParseTree parseRoot;
 	private ArrayList<VariableInformation> variableList;
 	
+	//Flags
+	private boolean flagLexerOutput = false;
+	private boolean flagParserOutput = false;
+	private boolean flagGeneratedCOutput = false;
+	
+	public void readCommandLineArguments(String[] args) {
+
+		//Debug flags
+		if (args.length == 0) 
+			args = getDebugArgs();
+		
+		for (String arg : args)
+			if (arg.toCharArray()[0] == '-')
+				readFlag(arg.substring(1));
+	}
+	
+	private String[] getDebugArgs() {
+		ArrayList<String> argList = new ArrayList<String>();
+		argList.add("-lex");
+		argList.add("-par");
+		argList.add("-opt");
+		argList.add("-genc");
+		return argList.toArray(new String[argList.size()]);
+	}
+	
 	/**
-	 * Performs the lexical analysis stage of the compiler
-	 * @param sourceCode The code of the program
+	 * Reads a command line flag
 	 */
-	private void lexicalAnalysis(String sourceCode) {
-		lexer = new EsperLexer(new ANTLRStringStream(sourceCode));
-		lexerSuccess = (lexerErrors = lexer.getNumberOfSyntaxErrors()) <= 0;
+	private void readFlag(String flag) {
+		
+		switch (flag) {
+		case "lex":
+			flagLexerOutput = true;
+			break;
+		case "par":
+			flagParserOutput = true;
+			break;
+		case "genc":
+			flagGeneratedCOutput = true;
+			break;
+			
+		default:
+			System.out.println("Error -" + flag + " is an unrecognised flag");
+			break;
+		}
 	}
 	
 	/**
@@ -59,23 +97,28 @@ public class EsperCompiler {
 		parseRoot = postParser.getParseTree(ast);
 		postParser.getVariableList();
 		variableList = postParser.variableList;
+		
+		//Optimise
+		EsperOptimiser optimiser = new EsperOptimiser();
+		parseRoot = optimiser.optimise(parseRoot);
+		
+		//Print output
+		if (flagParserOutput) {
+			System.out.println("Parser output:");
+			parseRoot.print(0);
+		}
 	}
 	
-
-	// http://www.antlr.org/wiki/pages/viewpage.action?pageId=789
-	public EsperCompiler(String sourceCode, boolean print) {
-
-		//Strip whitespace, tabs - both are irrelevant
-		sourceCode = sourceCode.replace("\n", "").replace("\r", "").replace("\t", "");
-
-		//Lexical analysis
-		lexicalAnalysis(sourceCode);
-
-		//Parser
-		parseProcess(new CommonTokenStream(lexer));
-
-		if (print) {
-			// Print Lexical Output
+	/**
+	 * Performs the lexical analysis stage of the compiler
+	 * @param sourceCode The code of the program
+	 */
+	private void lexicalAnalysis(String sourceCode) {
+		lexer = new EsperLexer(new ANTLRStringStream(sourceCode));
+		lexerSuccess = (lexerErrors = lexer.getNumberOfSyntaxErrors()) <= 0;
+		
+		//Print output
+		if (flagLexerOutput) {
 			System.out.println("Lexer output: ");
 			Token token;
 			EsperLexer tokensOut = new EsperLexer(new ANTLRStringStream(sourceCode));
@@ -85,13 +128,35 @@ public class EsperCompiler {
 					System.out.println("Token: " + token.getText() + " | "
 							+ getTokenName(token.getType()));
 			}
-			
-			// Print parser output
-			parseRoot.print(0);
 		}
+	}
+	
+	private void generateCode(ParseTree root) {
+		String code = EsperCGenerator.generate(root, variableList);
 		
-		EsperCGenerator cgen = new EsperCGenerator();
-		System.out.println(cgen.generate(parseRoot,variableList));
+		if (flagGeneratedCOutput)
+			System.out.println(code);
+	}
+	
+
+	// http://www.antlr.org/wiki/pages/viewpage.action?pageId=789
+	public void compile(String sourceCode) {
+
+		//Strip whitespace, tabs - both are irrelevant
+		sourceCode = sourceCode.replace("\n", "").replace("\r", "").replace("\t", "");
+		
+		//Strip comments (C style)
+		//Regex from http://ostermiller.org/findcomment.html
+		sourceCode = sourceCode.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)", "");
+
+		//Lexical analysis
+		lexicalAnalysis(sourceCode);
+
+		//Parser
+		parseProcess(new CommonTokenStream(lexer));
+		
+		//Code Generation
+		generateCode(parseRoot);
 	}
 
 	// Uses reflection to get the token names from their types
@@ -119,22 +184,5 @@ public class EsperCompiler {
 
 		return "UNKNOWN TOKEN";
 	}
-	
-	//Given the root node of an abstract syntax tree, prints it
-	private void printTree(CommonTree ast, int indent) { 
-		if (ast != null) {
-			//The string to represent child nodes of the AST
-			String indentString = "";
-			for (int i = 0; i < indent; i++)
-				indentString += "  ";
-			
-			//Recursively print this node's children
-			for (int i = 0; i < ast.getChildCount(); i++) {
-				System.out.println(indentString + ast.getChild(i).toString() + " [ " + getTokenName(ast.getChild(i).getType()) + " ] ");
-				printTree((CommonTree)ast.getChild(i), indent+1);
-			}
-		}
-	}
-
 
 }
